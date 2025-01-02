@@ -2,7 +2,7 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import App from '@/App'
-import { useThemeStore } from '@/stores/useThemesStore'
+import { useThemeStore } from '@/store/useThemeStore'
 import GlobalStyles from '@/styles/GlobalStyles'
 import { darkTheme, lightTheme } from '@/styles/themes'
 
