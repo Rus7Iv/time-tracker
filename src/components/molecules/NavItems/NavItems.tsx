@@ -3,10 +3,11 @@ import styled from 'styled-components'
 
 import { media } from '../../../media/media'
 
-import { ReactComponent as Calculator } from '@/assets/icons/calculator.svg'
-import { ReactComponent as Cardholder } from '@/assets/icons/cardholder.svg'
 import { ReactComponent as HomeIcon } from '@/assets/icons/home.svg'
 import { ReactComponent as RollUp } from '@/assets/icons/rollup.svg'
+// import { ReactComponent as Calculator } from '@/assets/icons/calculator.svg'
+// import { ReactComponent as Cardholder } from '@/assets/icons/cardholder.svg'
+import { ReactComponent as Timer } from '@/assets/icons/timer.svg'
 
 interface NavItemsProps {
   $isExpanded: boolean
@@ -26,7 +27,13 @@ export const NavItems = ({ $isExpanded }: NavItemsProps) => {
           <Text>Главная</Text>
         </TextWrapper>
       </NavItem>
-      <NavItem to={'/calculator'}>
+      <NavItem to={'/timer'}>
+        <Timer />
+        <TextWrapper $isExpanded={$isExpanded}>
+          <Text>Таймер</Text>
+        </TextWrapper>
+      </NavItem>
+      {/* <NavItem to={'/calculator'}>
         <Calculator />
         <TextWrapper $isExpanded={$isExpanded}>
           <Text>Калькулятор</Text>
@@ -37,7 +44,7 @@ export const NavItems = ({ $isExpanded }: NavItemsProps) => {
         <TextWrapper $isExpanded={$isExpanded}>
           <Text>Платежи</Text>
         </TextWrapper>
-      </NavItem>
+      </NavItem> */}
     </StyledNavItems>
   )
 }
