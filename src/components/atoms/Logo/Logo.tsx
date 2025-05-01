@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { ReactComponent as Logo } from '@/assets/icons/logo.svg'
+import { TimerAnimatedIcon } from '@/assets/components/TimerAnimatedIcon'
 
 interface IStyledLogoWithTextProps {
   className?: string
@@ -9,7 +9,7 @@ interface IStyledLogoWithTextProps {
 export const LogoWithText = ({ className }: IStyledLogoWithTextProps) => {
   return (
     <LogoContainer className={className}>
-      <Logo />
+      <TimerAnimatedIcon />
       <LogoText>TimeTracker</LogoText>
     </LogoContainer>
   )
