@@ -41,17 +41,18 @@ const ContentContainer = styled.div`
 const LeftContainer = styled.div`
   display: flex;
   transform: translateX(-40%);
+  align-items: center;
 `
 
 const StartText = styled.h1`
   margin: 0 30px 0 30px;
   text-align: center;
-  transform: translateY(5px);
+  font-size: 50px;
 `
 
 const StartButton = styled.button`
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background: linear-gradient(135deg, #ff38a9 0%, #f422a7 100%);
   border: none;
@@ -98,9 +99,9 @@ const StartButton = styled.button`
 const Triangle = styled.div`
   width: 0;
   height: 0;
-  border-left: 15px solid white;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
+  border-left: 20px solid white;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
   margin-left: 5px;
 `
 
@@ -111,5 +112,5 @@ const StyledPartyPopper = styled(PartyPopper)`
   transform: translateY(-50%);
   width: 40%;
   height: auto;
-  max-height: 80vh;
+  max-height: 400px;
 `
