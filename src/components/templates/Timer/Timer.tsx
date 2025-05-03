@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
 import { styled } from 'styled-components'
-
-import { formatTime } from './Timer.utils'
 
 import { StartButton } from '@/components/atoms/Buttons'
 import { Input } from '@/components/atoms/Input/Input'
+import useDocumentTitle from '@/hooks/useDocumentTitle'
+import { useElapsedTime } from '@/store/useElapsedTime'
 import { useTimerStore } from '@/store/useTimerStore'
 
 export const Timer = () => {
+  useDocumentTitle('TimeTracker')
   const { startTime, setStartTime } = useTimerStore()
-  const [timeCounter, setTimeCounter] = useState(formatTime(0))
+  const timeCounter = useElapsedTime(startTime)
 
   const handleStart = () => {
     if (startTime) {
@@ -18,24 +18,6 @@ export const Timer = () => {
       setStartTime(new Date())
     }
   }
-
-  useEffect(() => {
-    if (!startTime) {
-      setTimeCounter(formatTime(0))
-      return
-    }
-
-    const updateTimer = () => {
-      const diff = new Date().getTime() - startTime.getTime()
-      setTimeCounter(formatTime(diff))
-    }
-
-    updateTimer()
-
-    const interval = setInterval(updateTimer, 1000)
-
-    return () => clearInterval(interval)
-  }, [startTime])
 
   return (
     <TimerLayout>
