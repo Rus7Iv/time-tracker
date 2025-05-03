@@ -1,1 +1,1 @@
-export * from './Triangle'
+export * from './Shapes'

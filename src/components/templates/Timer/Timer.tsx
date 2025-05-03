@@ -12,7 +12,11 @@ export const Timer = () => {
   const [timeCounter, setTimeCounter] = useState(formatTime(0))
 
   const handleStart = () => {
-    setStartTime(new Date())
+    if (startTime) {
+      setStartTime(null)
+    } else {
+      setStartTime(new Date())
+    }
   }
 
   useEffect(() => {
@@ -36,7 +40,10 @@ export const Timer = () => {
   return (
     <TimerLayout>
       <TopContainer>
-        <StartButton onClick={handleStart} />
+        <StartButton
+          onClick={handleStart}
+          variant={startTime ? 'end' : 'start'}
+        />
         <Counter>{timeCounter}</Counter>
         <Input placeholder="Введите название" />
       </TopContainer>

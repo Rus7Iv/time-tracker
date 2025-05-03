@@ -1,29 +1,38 @@
 import { styled } from 'styled-components'
 
-import { Triangle } from '../Shapes'
+import { Square, Triangle } from '../Shapes'
+
+type ToggleTimerVariants = 'start' | 'end'
+
+interface ToggleTimerProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ToggleTimerVariants
+}
 
 export const StartButton = ({
+  variant = 'start',
   ...props
-}: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+}: ToggleTimerProps) => {
+  const isStartVariant = variant === 'start'
   return (
-    <StyledStartButton {...props}>
-      {props.children || <Triangle />}
+    <StyledStartButton $variant={variant} {...props}>
+      {props.children || (isStartVariant ? <Triangle /> : <Square />)}
     </StyledStartButton>
   )
 }
 
-const StyledStartButton = styled.button`
+const StyledStartButton = styled.button<{ $variant: ToggleTimerVariants }>`
   min-width: 80px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: ${({ theme }) => theme.colors.gradientpink};
+  background: ${({ theme, $variant }) =>
+    $variant === 'start' ? theme.colors.gradientpink : theme.colors.red};
   border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(244, 34, 167, 0.4);
   transition:
     transform 0.2s,
     box-shadow 0.2s;
@@ -31,7 +40,9 @@ const StyledStartButton = styled.button`
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 16px rgba(244, 34, 167, 0.5);
+    box-shadow: 0 6px 16px
+      ${({ theme, $variant }) =>
+        $variant === 'start' ? theme.colors.pink : theme.colors.red};
   }
 
   &:active {

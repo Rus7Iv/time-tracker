@@ -6,9 +6,15 @@ const colorPairs = {
   linen: { light: '#F5F3F0', dark: '#2D2D2D' },
   parchment: { light: '#EEE9E4', dark: '#3A3A3A' },
   creamshadow: { light: '#D9D9D9', dark: '#3b3b3b' },
+  pink: { light: '#F422A780', dark: '#F422A780' },
   gradientpink: {
     light: 'linear-gradient(135deg, #ff38a9 0%, #f422a7 100%)',
     dark: 'linear-gradient(135deg, #ff38a9 0%, #f422a7 100%)',
+  },
+  red: { light: '#FF363F', dark: '#FF363F' },
+  gradientred: {
+    light: `linear-gradient(135deg, #FF363F 0%, #A40000 100%)`,
+    dark: `linear-gradient(135deg, #FF363F 0%, #A40000 100%)`,
   },
 }
 

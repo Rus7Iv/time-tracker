@@ -8,3 +8,9 @@ export const Triangle = styled.div`
   border-bottom: 15px solid transparent;
   margin-left: 5px;
 `
+
+export const Square = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: white;
+`

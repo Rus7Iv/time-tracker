@@ -3,7 +3,7 @@ import { createJSONStorage, persist } from 'zustand/middleware'
 
 type TimeStore = {
   startTime: Date | null
-  setStartTime: (time: Date) => void
+  setStartTime: (time: Date | null) => void
 }
 
 export const useTimerStore = create<TimeStore>()(
