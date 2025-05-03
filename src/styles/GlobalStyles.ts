@@ -27,6 +27,10 @@ body {
   font-family: 'Gilroy Bold', sans-serif;
 }
 
+input {  
+  font-family: 'Gilroy Bold', sans-serif;
+}
+
 input::placeholder {
   font-family: 'Gilroy', sans-serif;
   color: ${({ theme }) => theme.colors.navyblue};
