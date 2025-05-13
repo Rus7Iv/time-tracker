@@ -4,6 +4,8 @@ import { createJSONStorage, persist } from 'zustand/middleware'
 type TimeStore = {
   startTime: Date | null
   setStartTime: (time: Date | null) => void
+  description: string
+  setDescription: (desc: string) => void
 }
 
 export const useTimerStore = create<TimeStore>()(
@@ -11,6 +13,8 @@ export const useTimerStore = create<TimeStore>()(
     (set) => ({
       startTime: null,
       setStartTime: (time) => set({ startTime: time }),
+      description: '',
+      setDescription: (desc) => set({ description: desc }),
     }),
     {
       name: 'timer-counter-storage',

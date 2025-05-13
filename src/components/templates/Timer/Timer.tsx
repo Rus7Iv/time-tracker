@@ -8,7 +8,8 @@ import { useTimerStore } from '@/store/useTimerStore'
 
 export const Timer = () => {
   useDocumentTitle('TimeTracker')
-  const { startTime, setStartTime } = useTimerStore()
+  const { startTime, setStartTime, description, setDescription } =
+    useTimerStore()
   const timeCounter = useElapsedTime(startTime)
 
   const handleStart = () => {
@@ -27,7 +28,11 @@ export const Timer = () => {
           variant={startTime ? 'end' : 'start'}
         />
         <Counter>{timeCounter}</Counter>
-        <Input placeholder="Введите название" />
+        <Input
+          placeholder="Введите название"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
       </TopContainer>
     </TimerLayout>
   )
