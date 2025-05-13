@@ -1,28 +1,27 @@
-import { useState } from 'react'
 import { styled } from 'styled-components'
 
 import { ReactComponent as CrossIcon } from '@/assets/icons/cross.svg'
 
 export const Input = ({
+  onChange,
   ...props
 }: React.InputHTMLAttributes<HTMLInputElement>) => {
-  const [value, setValue] = useState('')
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value)
-    if (props.onChange) {
-      props.onChange(event)
+    if (onChange) {
+      onChange(event)
     }
   }
 
   const handleClear = () => {
-    setValue('')
+    if (onChange) {
+      onChange({ target: { value: '' } } as React.ChangeEvent<HTMLInputElement>)
+    }
   }
 
   return (
     <Wrapper className={props.className}>
-      <StyledInput {...props} value={value} onChange={handleChange} />
-      {value && (
+      <StyledInput {...props} value={props.value} onChange={handleChange} />
+      {props.value && (
         <ClearButton onClick={handleClear}>
           <CrossIcon />
         </ClearButton>
