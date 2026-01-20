@@ -55,10 +55,13 @@ input[type="number"] {
 ::-webkit-scrollbar {
   background-color: ${({ theme }) => theme.colors.cream};
   border-radius: 20px;
+  width: 8px;
+  height: 8px;
 
   ${media.isTablet} {
     background-color: transparent;
     width: 4px;
+    height: 4px;
   }
 }
 
