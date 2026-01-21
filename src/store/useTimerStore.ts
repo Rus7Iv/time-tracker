@@ -6,6 +6,15 @@ type TimeStore = {
   setStartTime: (time: Date | null) => void
   description: string
   setDescription: (desc: string) => void
+  events: TimerEvent[]
+  addEvent: (event: TimerEvent) => void
+}
+
+type TimerEvent = {
+  id: string
+  startTime: Date
+  endTime: Date
+  description: string
 }
 
 export const useTimerStore = create<TimeStore>()(
@@ -15,12 +24,20 @@ export const useTimerStore = create<TimeStore>()(
       setStartTime: (time) => set({ startTime: time }),
       description: '',
       setDescription: (desc) => set({ description: desc }),
+      events: [],
+      addEvent: (event) =>
+        set((state) => ({
+          events: [...state.events, event],
+        })),
     }),
     {
       name: 'timer-counter-storage',
       storage: createJSONStorage(() => localStorage, {
         reviver: (key, value) => {
-          if (key === 'startTime' && typeof value === 'string') {
+          if (
+            (key === 'startTime' || key === 'endTime') &&
+            typeof value === 'string'
+          ) {
             return new Date(value)
           }
           return value

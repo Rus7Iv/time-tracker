@@ -1,21 +1,19 @@
 import styled from 'styled-components'
 
-import { ReactComponent as PartyPopper } from '@/assets/icons/partyPopper.svg'
-import { StartButton } from '@/components/atoms/Buttons'
+import { HomeHero } from '@/components/organisms/HomeHero/HomeHero'
+import { HomeVisual } from '@/components/organisms/HomeVisual/HomeVisual'
 import useDocumentTitle from '@/hooks/useDocumentTitle'
+import { media } from '@/media/media'
 
 export const Home = () => {
   useDocumentTitle('TimeTracker')
 
   return (
     <MainLayout>
-      <StartText>Начнём?</StartText>
-      <ContentContainer>
-        <LeftContainer>
-          <StartButton />
-        </LeftContainer>
-      </ContentContainer>
-      <StyledPartyPopper />
+      <ContentWrapper>
+        <HomeVisual />
+        <HomeHero />
+      </ContentWrapper>
     </MainLayout>
   )
 }
@@ -24,45 +22,31 @@ const MainLayout = styled.main`
   display: flex;
   width: 100%;
   height: 100%;
-  position: relative;
-`
-
-const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  overflow: hidden;
   position: relative;
-  z-index: 1;
+  box-sizing: border-box;
 `
 
-const LeftContainer = styled.div`
-  display: flex;
-  transform: translateX(-40%);
+const ContentWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 8vw, 100px);
+  width: 100%;
+  max-width: 1200px;
   align-items: center;
-`
+  padding: 0 40px;
+  box-sizing: border-box;
 
-const StartText = styled.h1`
-  margin: 0 30px 0 30px;
-  text-align: center;
-  font-size: 50px;
-
-  position: absolute;
-  left: 10%;
-  top: 50%;
-  transform: translateY(-50%) translateX(-10%);
-  width: 40%;
-  height: auto;
-  max-height: 300px;
-`
-
-const StyledPartyPopper = styled(PartyPopper)`
-  position: absolute;
-  right: 10%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40%;
-  height: auto;
-  max-height: 300px;
+  ${media.isTablet} {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 15px;
+    padding: 0 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { ReactComponent as RollupIcon } from '@/assets/icons/rollup.svg'
 import { LogoWithText } from '@/components/atoms/Logo/Logo'
+import { HeaderNavItems } from '@/components/molecules/NavItems/NavItems'
 import { ThemeToggle } from '@/components/molecules/ToggleTheme/ToggleTheme'
 import { media } from '@/media/media'
 import { useMedia } from '@/media/useMedia'
@@ -33,6 +34,7 @@ export const Header = () => {
       </Wrapper>
       {isMobile && (
         <MobileMenu>
+          <HeaderNavItems />
           <BottomMobileContainer>
             <ThemeToggle />
           </BottomMobileContainer>
@@ -79,7 +81,11 @@ const MobileMenu = styled.div`
   position: absolute;
   top: 75px;
   gap: 20px;
-  width: calc(100vw - 60px);
+  width: 100%;
+  left: 0;
+  right: 0;
+  padding: 0 30px;
+  box-sizing: border-box;
   flex-direction: column;
 `
 
