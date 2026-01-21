@@ -40,6 +40,9 @@ const PageContainer = styled.div`
 const MainContainer = styled.div`
   display: flex;
   flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 `
 
 const Content = styled.div<{ $isHeaderExpanded: boolean }>`
@@ -53,6 +56,8 @@ const Content = styled.div<{ $isHeaderExpanded: boolean }>`
   margin: 0 40px 40px 0;
   border-radius: 48px;
   box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
 
   ${media.isTablet} {
     margin: 0 24px 24px 0;

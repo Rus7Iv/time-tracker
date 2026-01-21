@@ -49,6 +49,25 @@ export const NavItems = ({ $isExpanded }: NavItemsProps) => {
   )
 }
 
+export const HeaderNavItems = () => {
+  return (
+    <HeaderNavItemsWrapper>
+      <NavItem to={'/'}>
+        <HomeIcon />
+        <TextWrapper $isExpanded>
+          <Text>Главная</Text>
+        </TextWrapper>
+      </NavItem>
+      <NavItem to={'/timer'}>
+        <Timer />
+        <TextWrapper $isExpanded>
+          <Text>Таймер</Text>
+        </TextWrapper>
+      </NavItem>
+    </HeaderNavItemsWrapper>
+  )
+}
+
 export const FooterNavItems = ({ $isExpanded, onAction }: NavItemsProps) => {
   return (
     <StyledFooterNavItems>
@@ -69,6 +88,12 @@ const StyledNavItems = styled.div`
   left: 18px;
   top: 50%;
   transform: translateY(-50%);
+`
+
+const HeaderNavItemsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `
 
 const StyledFooterNavItems = styled.div`
