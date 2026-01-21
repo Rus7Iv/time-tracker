@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 
 import { media } from '@/media/media'
+import { adjustBrightness, withAlpha } from '@/styles/colorUtils'
 
 const circleDash = 283 // 2 * PI * r (r=45)
 const progressOffset = circleDash * 0.3
@@ -17,14 +18,7 @@ export const TimerWidget = ({ time, status, size, compact }: TimerWidgetProps) =
   return (
     <ProgressCircleWrapper $size={size}>
       <ProgressCircleSVG viewBox="0 0 100 100">
-        <circle
-          cx="50"
-          cy="50"
-          r="45"
-          fill="none"
-          stroke="rgba(46, 51, 91, 0.05)"
-          strokeWidth="8"
-        />
+        <ProgressTrack cx="50" cy="50" r="45" fill="none" strokeWidth="8" />
         <AnimatedCircle
           cx="50"
           cy="50"
@@ -55,6 +49,11 @@ const ProgressCircleSVG = styled.svg`
   width: 100%;
   height: 100%;
   transform: rotate(-90deg);
+`
+
+const ProgressTrack = styled.circle`
+  stroke: ${({ theme }) =>
+    withAlpha(adjustBrightness(theme.colors.navyblue, 0.2), 0.12)};
 `
 
 const AnimatedCircle = styled.circle`
@@ -88,7 +87,7 @@ const TimeText = styled.span<{ $compact?: boolean }>`
 
 const StatusBadge = styled.span<{ $small?: boolean }>`
   background: ${({ theme }) => theme.colors.gradientpink};
-  color: white;
+  color: ${({ theme }) => adjustBrightness(theme.colors.cream, 0.85)};
   padding: ${({ $small }) => ($small ? '2px 8px' : '4px 12px')};
   border-radius: 12px;
   font-size: ${({ $small }) => ($small ? '9px' : '11px')};

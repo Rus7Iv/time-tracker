@@ -1,10 +1,9 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, useTheme } from 'styled-components'
 
 import { TimerWidget } from '@/components/molecules/TimerWidget/TimerWidget'
 import { media } from '@/media/media'
 import { fadeIn } from '@/styles/animations'
-
-const DOT_COLORS = ['#FF363F', '#F422A7', '#2E335B']
+import { adjustBrightness, withAlpha } from '@/styles/colorUtils'
 
 const visualContent = {
   title: 'Live Session',
@@ -13,11 +12,18 @@ const visualContent = {
 }
 
 export const HomeVisual = () => {
+  const theme = useTheme()
+  const dotColors = [
+    theme.colors.red,
+    theme.colors.raspberry,
+    theme.colors.navyblue,
+  ]
+
   return (
     <VisualSection>
       <DesktopDashboard>
         <DashboardHeader>
-          {DOT_COLORS.map((color) => (
+          {dotColors.map((color) => (
             <Dot key={color} $color={color} />
           ))}
           <DashboardTitle>{visualContent.title}</DashboardTitle>
@@ -65,14 +71,18 @@ const DesktopDashboard = styled.div`
   position: relative;
   width: 100%;
   max-width: 440px;
-  background: rgba(255, 255, 255, 0.4);
+  background: ${({ theme }) =>
+    withAlpha(adjustBrightness(theme.colors.cream, 0.08), 0.7)};
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid
+    ${({ theme }) => withAlpha(adjustBrightness(theme.colors.cream, 0.2), 0.75)};
   border-radius: 40px;
   padding: 30px;
   box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.05),
-    inset 0 0 20px rgba(255, 255, 255, 0.5);
+    0 20px 50px ${({ theme }) => withAlpha(theme.colors.navyblue, 0.08)},
+    inset 0 0 20px
+      ${({ theme }) =>
+        withAlpha(adjustBrightness(theme.colors.cream, 0.12), 0.6)};
   animation: ${float} 6s ease-in-out infinite;
 
   ${media.isTablet} {
