@@ -22,7 +22,11 @@ export const Input = ({
     <Wrapper className={props.className}>
       <StyledInput {...props} value={props.value} onChange={handleChange} />
       {props.value && (
-        <ClearButton onClick={handleClear}>
+        <ClearButton
+          type="button"
+          aria-label="Очистить поле ввода"
+          onClick={handleClear}
+        >
           <CrossIcon />
         </ClearButton>
       )}

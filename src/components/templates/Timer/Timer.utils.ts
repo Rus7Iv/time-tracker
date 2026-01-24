@@ -16,6 +16,9 @@ export const formatTime = (ms: number) => {
   ].join(':')
 }
 
+/**
+ * Timer event data used for grouping and display.
+ */
 export type TimerEventData = {
   id: string
   startTime: Date
@@ -23,6 +26,11 @@ export type TimerEventData = {
   description: string
 }
 
+/**
+ * Group events by calendar day and sort days and items chronologically.
+ * @param events - Source events array.
+ * @returns Array of day groups with sorted items.
+ */
 export const groupEventsByDay = (events: TimerEventData[]) => {
   const sorted = [...events].sort(
     (a, b) => a.startTime.getTime() - b.startTime.getTime(),
@@ -52,6 +60,12 @@ export const groupEventsByDay = (events: TimerEventData[]) => {
     .sort((a, b) => a.date.getTime() - b.date.getTime())
 }
 
+/**
+ * Format a calendar day label using locale-aware output.
+ * @param date - Date to format.
+ * @param locale - Optional locale string.
+ * @returns Localized day label.
+ */
 export const formatDayLabel = (date: Date, locale?: string) =>
   date.toLocaleDateString(locale, {
     weekday: 'long',
@@ -59,6 +73,13 @@ export const formatDayLabel = (date: Date, locale?: string) =>
     day: 'numeric',
   })
 
+/**
+ * Format a time range using locale-aware output.
+ * @param start - Start time.
+ * @param end - End time.
+ * @param locale - Optional locale string.
+ * @returns Localized time range label.
+ */
 export const formatTimeRange = (start: Date, end: Date, locale?: string) =>
   `${start.toLocaleTimeString(locale, {
     hour: '2-digit',
@@ -68,10 +89,21 @@ export const formatTimeRange = (start: Date, end: Date, locale?: string) =>
     minute: '2-digit',
   })}`
 
+/**
+ * Format a duration between two timestamps as "hh:mm:ss".
+ * @param start - Start time.
+ * @param end - End time.
+ * @returns Formatted duration string.
+ */
 export const formatDuration = (start: Date, end: Date) =>
   formatTime(end.getTime() - start.getTime())
 
 // TODO: исправить в задаче с переводами
+/**
+ * Get the localized label for the events count in Russian.
+ * @param count - Number of events.
+ * @returns Correct pluralized label.
+ */
 export const getEventsLabel = (count: number) => {
   const mod10 = count % 10
   const mod100 = count % 100
@@ -83,4 +115,19 @@ export const getEventsLabel = (count: number) => {
     return 'события'
   }
   return 'событий'
+}
+
+/**
+ * Create a unique ID for an event.
+ * @param start - Event start time.
+ * @param end - Event end time.
+ * @returns Unique ID string.
+ */
+export const createEventId = (start: Date, end: Date) => {
+  if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
+    return crypto.randomUUID()
+  }
+  return `${start.getTime()}-${end.getTime()}-${Math.random()
+    .toString(16)
+    .slice(2)}`
 }

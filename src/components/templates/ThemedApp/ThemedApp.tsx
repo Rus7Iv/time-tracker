@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from 'styled-components'
 
 import App from '@/App'
@@ -30,6 +31,7 @@ const ThemedApp: React.FC = () => {
     <ThemeProvider theme={currentTheme}>
       <GlobalStyles />
       <App />
+      <Analytics />
     </ThemeProvider>
   )
 }
