@@ -33,11 +33,11 @@ export const Header = () => {
         )}
       </Wrapper>
       {isMobile && (
-        <MobileMenu>
-          <HeaderNavItems />
-          <BottomMobileContainer>
-            <ThemeToggle />
-          </BottomMobileContainer>
+        <MobileMenu $isExpanded={isExpanded}>
+          <MobileMenuTopRow>
+            <HeaderNavItems />
+            <StyledThemeToggle />
+          </MobileMenuTopRow>
         </MobileMenu>
       )}
     </HeaderContainer>
@@ -46,6 +46,7 @@ export const Header = () => {
 
 const HeaderContainer = styled.header<{ $isExpanded: boolean }>`
   display: flex;
+  position: relative;
   width: 100%;
   height: 100px;
   padding: 0 40px 0 20px;
@@ -76,7 +77,7 @@ const Wrapper = styled.div`
   }
 `
 
-const MobileMenu = styled.div`
+const MobileMenu = styled.div<{ $isExpanded: boolean }>`
   display: flex;
   position: absolute;
   top: 75px;
@@ -87,18 +88,22 @@ const MobileMenu = styled.div`
   padding: 0 30px;
   box-sizing: border-box;
   flex-direction: column;
+  opacity: ${({ $isExpanded }) => ($isExpanded ? 1 : 0)};
+  pointer-events: ${({ $isExpanded }) => ($isExpanded ? 'auto' : 'none')};
+  transform: ${({ $isExpanded }) =>
+    $isExpanded ? 'translateY(0)' : 'translateY(-8px)'};
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  z-index: 2;
 `
 
-const BottomMobileContainer = styled.div`
+const MobileMenuTopRow = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 `
-
-// const MobileSearchInput = styled(Input)`
-//   width: calc(100vw - 60px);
-// `
 
 const LeftContainer = styled.div`
   display: flex;
@@ -114,6 +119,10 @@ const LeftContainer = styled.div`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
+`
+
+const StyledThemeToggle = styled(ThemeToggle)`
+  margin: 1rem 0;
 `
 
 const RightContainer = styled.div`

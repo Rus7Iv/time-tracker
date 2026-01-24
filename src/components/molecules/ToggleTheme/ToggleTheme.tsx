@@ -5,7 +5,7 @@ import { ReactComponent as SunIcon } from '@/assets/icons/sun.svg'
 import { Toggle } from '@/components/atoms/Toggle/Toggle'
 import { useThemeStore } from '@/store/useThemeStore'
 
-export const ThemeToggle = () => {
+export const ThemeToggle = ({ className }: { className?: string }) => {
   const themeMode = useThemeStore((state) => state.theme)
   const toggleTheme = useThemeStore((state) => state.toggleTheme)
 
@@ -19,6 +19,7 @@ export const ThemeToggle = () => {
 
   return (
     <ToggleContainer
+      className={className}
       checked={themeMode === 'dark'}
       leftLabel={<SunIcon />}
       rightLabel={<MoonIcon />}
