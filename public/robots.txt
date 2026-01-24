@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Host: time-tracker-beta-two.vercel.app
+Sitemap: https://time-tracker-beta-two.vercel.app/sitemap.xml
