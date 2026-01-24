@@ -50,7 +50,7 @@ export const HomeVisual = () => {
 
 const float = keyframes`
   0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(2deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
   100% { transform: translateY(0px) rotate(0deg); }
 `
 
@@ -65,6 +65,10 @@ const VisualSection = styled.div`
     order: 1;
     margin-bottom: 10px;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `
 
 const DesktopDashboard = styled.div`
@@ -72,21 +76,31 @@ const DesktopDashboard = styled.div`
   width: 100%;
   max-width: 440px;
   background: ${({ theme }) =>
-    withAlpha(adjustBrightness(theme.colors.cream, 0.08), 0.7)};
-  backdrop-filter: blur(20px);
+    withAlpha(adjustBrightness(theme.colors.cream, 0.06), 0.9)};
   border: 1px solid
     ${({ theme }) => withAlpha(adjustBrightness(theme.colors.cream, 0.2), 0.75)};
   border-radius: 40px;
   padding: 30px;
   box-shadow:
-    0 20px 50px ${({ theme }) => withAlpha(theme.colors.navyblue, 0.08)},
+    0 16px 36px ${({ theme }) => withAlpha(theme.colors.navyblue, 0.08)},
     inset 0 0 20px
       ${({ theme }) =>
         withAlpha(adjustBrightness(theme.colors.cream, 0.12), 0.6)};
-  animation: ${float} 6s ease-in-out infinite;
+  animation: ${float} 8s ease-in-out infinite;
+  will-change: transform;
+
+  @supports (backdrop-filter: blur(12px)) {
+    background: ${({ theme }) =>
+      withAlpha(adjustBrightness(theme.colors.cream, 0.08), 0.7)};
+    backdrop-filter: blur(12px);
+  }
 
   ${media.isTablet} {
     display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
   }
 `
 
@@ -97,7 +111,11 @@ const MobileIndicator = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: ${float} 6s ease-in-out infinite;
+    animation: ${float} 8s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
   }
 `
 

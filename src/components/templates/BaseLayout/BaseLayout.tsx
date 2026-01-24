@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import styled from 'styled-components'
 
 import { media } from '../../../media/media'
@@ -23,7 +24,11 @@ export const BaseLayout = ({ children }: IBaseLayoutProps) => {
         {!isMobile && (
           <Sidebar $isExpanded={isSidebarExpanded} onAction={toggleSidebar} />
         )}
-        <Content $isHeaderExpanded={isHeaderExpanded}>{children}</Content>
+        <Content $isHeaderExpanded={isHeaderExpanded}>
+          <Suspense fallback={<SuspenseFallback>Загрузка...</SuspenseFallback>}>
+            {children}
+          </Suspense>
+        </Content>
       </MainContainer>
     </PageContainer>
   )
@@ -45,7 +50,7 @@ const MainContainer = styled.div`
   overflow: hidden;
 `
 
-const Content = styled.div<{ $isHeaderExpanded: boolean }>`
+const Content = styled.main<{ $isHeaderExpanded: boolean }>`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.cream};
   padding: 35px;
@@ -73,4 +78,14 @@ const Content = styled.div<{ $isHeaderExpanded: boolean }>`
     max-height: ${({ $isHeaderExpanded }) =>
       $isHeaderExpanded ? 'calc(100vh - 215px)' : 'calc(100vh - 78px)'};
   }
+`
+
+const SuspenseFallback = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => `${theme.colors.navyblue}80`};
+  font-size: 16px;
 `

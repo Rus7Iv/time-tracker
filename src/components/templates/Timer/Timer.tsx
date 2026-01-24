@@ -4,6 +4,7 @@ import { styled } from 'styled-components'
 import { StartButton } from '@/components/atoms/Buttons'
 import { Input } from '@/components/atoms/Input/Input'
 import {
+  createEventId,
   formatDayLabel,
   formatDuration,
   formatTimeRange,
@@ -29,7 +30,7 @@ export const Timer = () => {
     if (startTime) {
       const endTime = new Date()
       addEvent({
-        id: `${startTime.getTime()}-${endTime.getTime()}`,
+        id: createEventId(startTime, endTime),
         startTime,
         endTime,
         description: description.trim() || 'No description',
@@ -45,30 +46,37 @@ export const Timer = () => {
 
   return (
     <TimerLayout>
+      <PageTitle>Таймер</PageTitle>
       <TopContainer>
         <ControlsRow>
           <TimerStartButton
             onClick={handleStart}
             variant={startTime ? 'end' : 'start'}
+            type="button"
+            aria-pressed={Boolean(startTime)}
+            aria-label={startTime ? 'Остановить таймер' : 'Запустить таймер'}
           />
           <Counter>{timeCounter}</Counter>
         </ControlsRow>
         <TimerInput
-          placeholder="Введите название"
+          placeholder="Опишите активность"
+          aria-label="Описание активности"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
       </TopContainer>
       <EventsListSection>
         <EventsListHeader>
-          <EventsListTitle>Список событий</EventsListTitle>
+          <EventsListTitle>История активностей</EventsListTitle>
           <EventsListMeta>
             {events.length} {getEventsLabel(events.length)}
           </EventsListMeta>
         </EventsListHeader>
         <EventsListScroller>
           {events.length === 0 ? (
-            <EmptyState>Сохраненных событий пока нет.</EmptyState>
+            <EmptyState>
+              Пока нет активностей. Запустите таймер, чтобы начать.
+            </EmptyState>
           ) : (
             <DayList>
               {groupedEvents.map((group) => (
@@ -77,8 +85,8 @@ export const Timer = () => {
                     <DayTitle>{formatDayLabel(group.date)}</DayTitle>
                   </DayHeader>
                   <DayEvents>
-                    {group.items.map((event) => (
-                      <EventCard key={event.id}>
+                    {group.items.map((event, index) => (
+                      <EventCard key={`${event.id}-${index}`}>
                         <EventTime>
                           {formatTimeRange(event.startTime, event.endTime)}
                         </EventTime>
@@ -114,6 +122,19 @@ const TimerLayout = styled.div`
   ${media.isMobile} {
     gap: 16px;
   }
+`
+
+// Needed for robots
+const PageTitle = styled.h1`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 `
 
 const TopContainer = styled.div`
