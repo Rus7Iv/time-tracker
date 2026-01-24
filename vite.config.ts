@@ -12,7 +12,20 @@ const __dirname = dirname(__filename)
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: [
+          [
+            'styled-components',
+            {
+              displayName: true,
+              fileName: true,
+              pure: true,
+            },
+          ],
+        ],
+      },
+    }),
     svgr(),
     VitePWA({
       registerType: 'autoUpdate',

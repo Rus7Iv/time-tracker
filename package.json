@@ -26,6 +26,7 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^2.1.4",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/styled-components": "^5.1.34",
