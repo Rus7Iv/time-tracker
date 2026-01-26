@@ -17,6 +17,34 @@ export const formatTime = (ms: number) => {
 }
 
 /**
+ * Format a Date for use in a time input ("HH:mm:ss").
+ * @param value - Source date.
+ * @returns Time input value.
+ */
+export const formatTimeInputValue = (value: Date) => {
+  const hours = value.getHours().toString().padStart(2, '0')
+  const minutes = value.getMinutes().toString().padStart(2, '0')
+  const seconds = value.getSeconds().toString().padStart(2, '0')
+  return `${hours}:${minutes}:${seconds}`
+}
+
+/**
+ * Apply a time string ("HH:mm:ss") to a base date.
+ * @param base - Date to update.
+ * @param timeValue - Time input value.
+ * @returns Updated date or null if time is invalid.
+ */
+export const applyTimeToDate = (base: Date, timeValue: string) => {
+  const [hours, minutes, seconds = 0] = timeValue.split(':').map(Number)
+  if (Number.isNaN(hours) || Number.isNaN(minutes) || Number.isNaN(seconds)) {
+    return null
+  }
+  const updated = new Date(base)
+  updated.setHours(hours, minutes, seconds, 0)
+  return updated
+}
+
+/**
  * Timer event data used for grouping and display.
  */
 export type TimerEventData = {
@@ -84,9 +112,11 @@ export const formatTimeRange = (start: Date, end: Date, locale?: string) =>
   `${start.toLocaleTimeString(locale, {
     hour: '2-digit',
     minute: '2-digit',
+    second: '2-digit',
   })} - ${end.toLocaleTimeString(locale, {
     hour: '2-digit',
     minute: '2-digit',
+    second: '2-digit',
   })}`
 
 /**
