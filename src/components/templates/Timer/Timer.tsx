@@ -17,6 +17,7 @@ export const Timer = () => {
   const events = useTimerStore((state) => state.events)
   const addEvent = useTimerStore((state) => state.addEvent)
   const updateEvent = useTimerStore((state) => state.updateEvent)
+  const removeEvent = useTimerStore((state) => state.removeEvent)
   const timeCounter = useElapsedTime(startTime)
   const isRunning = Boolean(startTime)
 
@@ -47,7 +48,11 @@ export const Timer = () => {
         onToggle={handleToggle}
         onDescriptionChange={setDescription}
       />
-      <TimerEvents events={events} onUpdateEvent={updateEvent} />
+      <TimerEvents
+        events={events}
+        onUpdateEvent={updateEvent}
+        onDeleteEvent={removeEvent}
+      />
     </TimerLayout>
   )
 }

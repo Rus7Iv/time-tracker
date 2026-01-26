@@ -1,16 +1,17 @@
 import { type FormEvent, useMemo, useState } from 'react'
 import styled from 'styled-components'
 
+import { TimerDeleteDialog } from '@/components/molecules/TimerDeleteDialog/TimerDeleteDialog'
 import {
   type DraftTimes,
   type EditDraft,
   TimerEventCard,
 } from '@/components/molecules/TimerEventCard/TimerEventCard'
+import { TimerEventsHeader } from '@/components/molecules/TimerEventsHeader/TimerEventsHeader'
 import {
   applyTimeToDate,
   formatDayLabel,
   formatTimeInputValue,
-  getEventsLabel,
   groupEventsByDay,
   type TimerEventData,
 } from '@/components/templates/Timer/Timer.utils'
@@ -18,6 +19,7 @@ import {
 type TimerEventsProps = {
   events: TimerEventData[]
   onUpdateEvent: (id: string, updates: Partial<TimerEventData>) => void
+  onDeleteEvent: (id: string) => void
 }
 
 const labels = {
@@ -40,9 +42,18 @@ const getDraftTimes = (
   return { start, end }
 }
 
-export const TimerEvents = ({ events, onUpdateEvent }: TimerEventsProps) => {
+export const TimerEvents = ({
+  events,
+  onUpdateEvent,
+  onDeleteEvent,
+}: TimerEventsProps) => {
   const [editingEventId, setEditingEventId] = useState<string | null>(null)
   const [editDraft, setEditDraft] = useState<EditDraft | null>(null)
+  const [pendingDeleteId, setPendingDeleteId] = useState<string | null>(null)
+
+  const pendingDeleteEvent = pendingDeleteId
+    ? (events.find((event) => event.id === pendingDeleteId) ?? null)
+    : null
 
   const handleEditStart = (event: TimerEventData) => {
     setEditingEventId(event.id)
@@ -86,16 +97,30 @@ export const TimerEvents = ({ events, onUpdateEvent }: TimerEventsProps) => {
     handleEditSave(event)
   }
 
+  const handleDeleteRequest = (eventId: string) => {
+    setPendingDeleteId(eventId)
+  }
+
+  const handleDeleteConfirm = () => {
+    if (!pendingDeleteId) {
+      return
+    }
+    if (editingEventId === pendingDeleteId) {
+      handleEditCancel()
+    }
+    onDeleteEvent(pendingDeleteId)
+    setPendingDeleteId(null)
+  }
+
+  const handleDeleteCancel = () => {
+    setPendingDeleteId(null)
+  }
+
   const groupedEvents = useMemo(() => groupEventsByDay(events), [events])
 
   return (
     <EventsListSection>
-      <EventsListHeader>
-        <EventsListTitle>{labels.listTitle}</EventsListTitle>
-        <EventsListMeta>
-          {events.length} {getEventsLabel(events.length)}
-        </EventsListMeta>
-      </EventsListHeader>
+      <TimerEventsHeader title={labels.listTitle} count={events.length} />
       <EventsListScroller>
         {events.length === 0 ? (
           <EmptyState>{labels.emptyState}</EmptyState>
@@ -132,6 +157,7 @@ export const TimerEvents = ({ events, onUpdateEvent }: TimerEventsProps) => {
                         onEditSubmit={(formEvent) =>
                           handleEditSubmit(formEvent, event)
                         }
+                        onDelete={() => handleDeleteRequest(event.id)}
                         onEditDraftChange={handleEditDraftChange}
                       />
                     )
@@ -142,6 +168,11 @@ export const TimerEvents = ({ events, onUpdateEvent }: TimerEventsProps) => {
           </DayList>
         )}
       </EventsListScroller>
+      <TimerDeleteDialog
+        event={pendingDeleteEvent}
+        onCancel={handleDeleteCancel}
+        onConfirm={handleDeleteConfirm}
+      />
     </EventsListSection>
   )
 }
@@ -152,23 +183,6 @@ const EventsListSection = styled.section`
   flex: 1;
   min-height: 0;
   gap: 16px;
-`
-
-const EventsListHeader = styled.div`
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-`
-
-const EventsListTitle = styled.h2`
-  margin: 0;
-  font-size: 20px;
-  letter-spacing: -0.2px;
-`
-
-const EventsListMeta = styled.span`
-  font-size: 16px;
-  color: ${({ theme }) => `${theme.colors.navyblue}80`};
 `
 
 const EventsListScroller = styled.div`

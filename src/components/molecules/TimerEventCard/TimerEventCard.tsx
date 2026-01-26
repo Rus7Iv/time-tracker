@@ -29,12 +29,15 @@ type TimerEventCardProps = {
   onEditStart: () => void
   onEditCancel: () => void
   onEditSubmit: (formEvent: FormEvent<HTMLFormElement>) => void
+  onDelete: () => void
   onEditDraftChange: (updates: Partial<EditDraft>) => void
 }
 
 const labels = {
   edit: 'Редактировать',
   editAria: 'Редактировать событие',
+  delete: 'Удалить',
+  deleteAria: 'Удалить событие',
   save: 'Сохранить',
   saveAria: 'Сохранить изменения события',
   cancel: 'Отмена',
@@ -55,6 +58,7 @@ export const TimerEventCard = ({
   onEditStart,
   onEditCancel,
   onEditSubmit,
+  onDelete,
   onEditDraftChange,
 }: TimerEventCardProps) => {
   const timeRangeLabel =
@@ -79,6 +83,14 @@ export const TimerEventCard = ({
               aria-label={labels.editAria}
             >
               {labels.edit}
+            </EventActionButton>
+            <EventActionButton
+              type="button"
+              $variant="danger"
+              onClick={onDelete}
+              aria-label={labels.deleteAria}
+            >
+              {labels.delete}
             </EventActionButton>
           </EventActions>
         )}
@@ -199,15 +211,23 @@ const EventActions = styled.div<{ $isEditing?: boolean }>`
   }
 `
 
-const EventActionButton = styled.button<{ $variant?: 'primary' | 'ghost' }>`
+const EventActionButton = styled.button<{
+  $variant?: 'primary' | 'ghost' | 'danger'
+}>`
   border: 1px solid
     ${({ theme, $variant }) =>
-      $variant === 'primary' ? theme.colors.raspberry : theme.colors.parchment};
+      $variant === 'primary' || $variant === 'danger'
+        ? theme.colors.raspberry
+        : theme.colors.parchment};
   border-radius: 999px;
   background: ${({ theme, $variant }) =>
     $variant === 'primary' ? theme.colors.gradientpink : theme.colors.cream};
   color: ${({ theme, $variant }) =>
-    $variant === 'primary' ? theme.colors.cream : theme.colors.navyblue};
+    $variant === 'primary'
+      ? theme.colors.cream
+      : $variant === 'danger'
+        ? theme.colors.raspberry
+        : theme.colors.navyblue};
   font-size: 12px;
   font-weight: 600;
   padding: 6px 12px;

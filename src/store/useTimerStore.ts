@@ -9,6 +9,7 @@ type TimeStore = {
   events: TimerEvent[]
   addEvent: (event: TimerEvent) => void
   updateEvent: (id: string, updates: Partial<TimerEvent>) => void
+  removeEvent: (id: string) => void
 }
 
 type TimerEvent = {
@@ -35,6 +36,10 @@ export const useTimerStore = create<TimeStore>()(
           events: state.events.map((event) =>
             event.id === id ? { ...event, ...updates } : event,
           ),
+        })),
+      removeEvent: (id) =>
+        set((state) => ({
+          events: state.events.filter((event) => event.id !== id),
         })),
     }),
     {
