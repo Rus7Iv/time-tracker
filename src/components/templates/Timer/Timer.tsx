@@ -1,16 +1,8 @@
-import { useMemo } from 'react'
 import { styled } from 'styled-components'
 
-import { StartButton } from '@/components/atoms/Buttons'
-import { Input } from '@/components/atoms/Input/Input'
-import {
-  createEventId,
-  formatDayLabel,
-  formatDuration,
-  formatTimeRange,
-  getEventsLabel,
-  groupEventsByDay,
-} from '@/components/templates/Timer/Timer.utils'
+import { TimerControls } from '@/components/organisms/TimerControls/TimerControls'
+import { TimerEvents } from '@/components/organisms/TimerEvents/TimerEvents'
+import { createEventId } from '@/components/templates/Timer/Timer.utils'
 import useDocumentTitle from '@/hooks/useDocumentTitle'
 import { media } from '@/media/media'
 import { useElapsedTime } from '@/store/useElapsedTime'
@@ -24,85 +16,43 @@ export const Timer = () => {
   const setDescription = useTimerStore((state) => state.setDescription)
   const events = useTimerStore((state) => state.events)
   const addEvent = useTimerStore((state) => state.addEvent)
+  const updateEvent = useTimerStore((state) => state.updateEvent)
+  const removeEvent = useTimerStore((state) => state.removeEvent)
   const timeCounter = useElapsedTime(startTime)
+  const isRunning = Boolean(startTime)
 
-  const handleStart = () => {
-    if (startTime) {
-      const endTime = new Date()
-      addEvent({
-        id: createEventId(startTime, endTime),
-        startTime,
-        endTime,
-        description: description.trim() || 'No description',
-      })
-      setDescription('')
-      setStartTime(null)
-    } else {
+  const handleToggle = () => {
+    if (!startTime) {
       setStartTime(new Date())
+      return
     }
-  }
 
-  const groupedEvents = useMemo(() => groupEventsByDay(events), [events])
+    const endTime = new Date()
+    addEvent({
+      id: createEventId(startTime, endTime),
+      startTime,
+      endTime,
+      description: description.trim() || 'No description',
+    })
+    setDescription('')
+    setStartTime(null)
+  }
 
   return (
     <TimerLayout>
       <PageTitle>Таймер</PageTitle>
-      <TopContainer>
-        <ControlsRow>
-          <TimerStartButton
-            onClick={handleStart}
-            variant={startTime ? 'end' : 'start'}
-            type="button"
-            aria-pressed={Boolean(startTime)}
-            aria-label={startTime ? 'Остановить таймер' : 'Запустить таймер'}
-          />
-          <Counter>{timeCounter}</Counter>
-        </ControlsRow>
-        <TimerInput
-          placeholder="Опишите активность"
-          aria-label="Описание активности"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </TopContainer>
-      <EventsListSection>
-        <EventsListHeader>
-          <EventsListTitle>История активностей</EventsListTitle>
-          <EventsListMeta>
-            {events.length} {getEventsLabel(events.length)}
-          </EventsListMeta>
-        </EventsListHeader>
-        <EventsListScroller>
-          {events.length === 0 ? (
-            <EmptyState>
-              Пока нет активностей. Запустите таймер, чтобы начать.
-            </EmptyState>
-          ) : (
-            <DayList>
-              {groupedEvents.map((group) => (
-                <DaySection key={group.date.toISOString()}>
-                  <DayHeader>
-                    <DayTitle>{formatDayLabel(group.date)}</DayTitle>
-                  </DayHeader>
-                  <DayEvents>
-                    {group.items.map((event, index) => (
-                      <EventCard key={`${event.id}-${index}`}>
-                        <EventTime>
-                          {formatTimeRange(event.startTime, event.endTime)}
-                        </EventTime>
-                        <EventDescription>{event.description}</EventDescription>
-                        <EventDuration>
-                          {formatDuration(event.startTime, event.endTime)}
-                        </EventDuration>
-                      </EventCard>
-                    ))}
-                  </DayEvents>
-                </DaySection>
-              ))}
-            </DayList>
-          )}
-        </EventsListScroller>
-      </EventsListSection>
+      <TimerControls
+        isRunning={isRunning}
+        timeCounter={timeCounter}
+        description={description}
+        onToggle={handleToggle}
+        onDescriptionChange={setDescription}
+      />
+      <TimerEvents
+        events={events}
+        onUpdateEvent={updateEvent}
+        onDeleteEvent={removeEvent}
+      />
     </TimerLayout>
   )
 }
@@ -135,171 +85,4 @@ const PageTitle = styled.h1`
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-`
-
-const TopContainer = styled.div`
-  display: flex;
-  align-items: center;
-  height: 80px;
-  width: 100%;
-  gap: 20px;
-
-  ${media.isTablet} {
-    height: auto;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  ${media.isMobile} {
-    flex-direction: column;
-    align-items: stretch;
-  }
-`
-
-const ControlsRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 16px;
-
-  ${media.isMobile} {
-    justify-content: center;
-  }
-`
-
-const TimerStartButton = styled(StartButton)`
-  min-width: 80px;
-  width: 80px;
-  height: 80px;
-
-  ${media.isMobile} {
-    min-width: 64px;
-    width: 64px;
-    height: 64px;
-  }
-`
-
-const Counter = styled.div`
-  font-size: 30px;
-  min-width: 124px;
-
-  ${media.isMobile} {
-    font-size: 26px;
-  }
-`
-
-const TimerInput = styled(Input)`
-  flex: 1;
-  min-width: 220px;
-
-  ${media.isMobile} {
-    min-width: 100%;
-    font-size: 22px;
-  }
-`
-
-const EventsListSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 0;
-  gap: 16px;
-`
-
-const EventsListHeader = styled.div`
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-`
-
-const EventsListTitle = styled.h2`
-  margin: 0;
-  font-size: 20px;
-  letter-spacing: -0.2px;
-`
-
-const EventsListMeta = styled.span`
-  font-size: 16px;
-  color: ${({ theme }) => `${theme.colors.navyblue}80`};
-`
-
-const EventsListScroller = styled.div`
-  flex: 1;
-  overflow: auto;
-  padding: 12px 6px 12px 0;
-  border-radius: 20px;
-  background: ${({ theme }) => theme.colors.linen};
-  border: 1px solid ${({ theme }) => theme.colors.parchment};
-`
-
-const EmptyState = styled.div`
-  padding: 24px;
-  font-size: 20px;
-  color: ${({ theme }) => `${theme.colors.navyblue}80`};
-`
-
-const DayList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 0 18px 18px 18px;
-`
-
-const DaySection = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-`
-
-const DayHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`
-
-const DayTitle = styled.h3`
-  margin: 0;
-  font-size: 16px;
-`
-
-const DayEvents = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 12px;
-`
-
-const EventCard = styled.div`
-  background: ${({ theme }) => theme.colors.cream};
-  border-radius: 16px;
-  padding: 14px 16px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-`
-
-const EventTime = styled.div`
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-  color: ${({ theme }) => `${theme.colors.navyblue}80`};
-
-  ${media.isMobile} {
-    font-size: 16px;
-  }
-`
-
-const EventDescription = styled.div`
-  font-size: 20px;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.navyblue};
-`
-
-const EventDuration = styled.div`
-  font-size: 12px;
-  color: ${({ theme }) => `${theme.colors.navyblue}70`};
-
-  ${media.isMobile} {
-    font-size: 16px;
-  }
 `
