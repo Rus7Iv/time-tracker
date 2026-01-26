@@ -1,0 +1,78 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "alphaTag": "alpha",
+    "loading": "Wird geladen...",
+    "noDescription": "Keine Beschreibung",
+    "clearInput": "Eingabefeld leeren",
+    "toggleOff": "Aus",
+    "toggleOn": "An"
+  },
+  "nav": {
+    "home": "Startseite",
+    "timer": "Timer",
+    "collapse": "Einklappen",
+    "calculator": "Rechner",
+    "payments": "Zahlungen"
+  },
+  "homeHero": {
+    "badgeText": "Dein personlicher Weg zur Produktivitat",
+    "title": "Zeit verwalten",
+    "gradientTitle": "mit Fokus",
+    "subtitle": "Eine intuitive Oberflache fur alle, die jede Minute schatzen. Baue einen produktiven Rhythmus auf und erreiche neue Ziele.",
+    "ctaTitle": "Loslegen",
+    "ctaDesc": "Schliesse dich 10.000+ Nutzern an",
+    "stats": {
+      "focus": "FOKUS",
+      "access": "ZUGANG",
+      "days": "TAGE"
+    }
+  },
+  "homeVisual": {
+    "title": "Live-Sitzung",
+    "status": "Fokusmodus"
+  },
+  "timerControls": {
+    "start": "Timer starten",
+    "stop": "Timer stoppen",
+    "descriptionPlaceholder": "Aktivitat beschreiben",
+    "descriptionAriaLabel": "Beschreibung der Aktivitat"
+  },
+  "timerEvents": {
+    "listTitle": "Aktivitatsverlauf",
+    "emptyState": "Noch keine Aktivitaten. Starte den Timer, um zu beginnen."
+  },
+  "timerEventCard": {
+    "edit": "Bearbeiten",
+    "editAria": "Ereignis bearbeiten",
+    "delete": "Loschen",
+    "deleteAria": "Ereignis loschen",
+    "save": "Speichern",
+    "saveAria": "Ereignisanderungen speichern",
+    "cancel": "Abbrechen",
+    "cancelAria": "Bearbeitung des Ereignisses abbrechen",
+    "descriptionPlaceholder": "Ereignisbeschreibung",
+    "descriptionAriaLabel": "Ereignisbeschreibung",
+    "startTimeAriaLabel": "Startzeit",
+    "endTimeAriaLabel": "Endzeit",
+    "invalidHint": "Die Endzeit muss nach der Startzeit liegen"
+  },
+  "timerDeleteDialog": {
+    "title": "Ereignis loschen?",
+    "description": "Diese Aktion kann nicht ruckgangig gemacht werden.",
+    "cancel": "Abbrechen",
+    "confirm": "Loschen",
+    "detailsFallback": "Keine Beschreibung"
+  },
+  "notFound": {
+    "title": "Ups...",
+    "desc": "Diese Seite existiert offenbar nicht",
+    "goToMain": "Zur Startseite"
+  },
+  "events": {
+    "label": {
+      "one": "Ereignis",
+      "other": "Ereignisse"
+    }
+  }
+}

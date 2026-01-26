@@ -1,0 +1,79 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "loading": "読み込み中...",
+    "noDescription": "説明なし",
+    "clearInput": "入力をクリア",
+    "toggleOff": "オフ",
+    "toggleOn": "オン"
+  },
+  "nav": {
+    "home": "ホーム",
+    "timer": "タイマー",
+    "collapse": "折りたたむ",
+    "calculator": "計算機",
+    "payments": "支払い"
+  },
+  "homeHero": {
+    "badgeText": "生産性へのパーソナルガイド",
+    "title": "時間を管理し、",
+    "gradientTitle": "集中を高める",
+    "subtitle": "一分一秒を大切にする人のための直感的なインターフェース。生産性のリズムを作り、新たな高みへ。",
+    "ctaTitle": "今すぐ始める",
+    "ctaDesc": "10,000人以上のユーザーが利用中",
+    "stats": {
+      "focus": "フォーカス",
+      "access": "アクセス",
+      "days": "日数"
+    }
+  },
+  "homeVisual": {
+    "title": "アクティブなセッション",
+    "status": "フォーカスモード"
+  },
+  "timerControls": {
+    "start": "タイマーを開始",
+    "stop": "タイマーを停止",
+    "descriptionPlaceholder": "アクティビティの内容を入力",
+    "descriptionAriaLabel": "アクティビティの説明"
+  },
+  "timerEvents": {
+    "listTitle": "アクティビティ履歴",
+    "emptyState": "アクティビティはまだありません。タイマーを開始して記録しましょう。"
+  },
+  "timerEventCard": {
+    "edit": "編集",
+    "editAria": "イベントを編集",
+    "delete": "削除",
+    "deleteAria": "イベントを削除",
+    "save": "保存",
+    "saveAria": "変更を保存",
+    "cancel": "キャンセル",
+    "cancelAria": "編集をキャンセル",
+    "descriptionPlaceholder": "イベントの説明",
+    "descriptionAriaLabel": "イベントの説明",
+    "startTimeAriaLabel": "開始時刻",
+    "endTimeAriaLabel": "終了時刻",
+    "invalidHint": "終了時刻は開始時刻より後である必要があります"
+  },
+  "timerDeleteDialog": {
+    "title": "イベントを削除しますか？",
+    "description": "この操作は取り消すことができません。",
+    "cancel": "キャンセル",
+    "confirm": "削除",
+    "detailsFallback": "説明なし"
+  },
+  "notFound": {
+    "title": "おっと...",
+    "desc": "お探しのページは見つかりませんでした",
+    "goToMain": "ホームに戻る"
+  },
+  "events": {
+    "label": {
+      "one": "件のイベント",
+      "few": "件のイベント",
+      "many": "件のイベント",
+      "other": "件のイベント"
+    }
+  }
+}

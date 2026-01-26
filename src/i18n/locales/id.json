@@ -1,0 +1,78 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "alphaTag": "alpha",
+    "loading": "Memuat...",
+    "noDescription": "Tanpa deskripsi",
+    "clearInput": "Hapus kolom input",
+    "toggleOff": "Mati",
+    "toggleOn": "Hidup"
+  },
+  "nav": {
+    "home": "Beranda",
+    "timer": "Timer",
+    "collapse": "Ciutkan",
+    "calculator": "Kalkulator",
+    "payments": "Pembayaran"
+  },
+  "homeHero": {
+    "badgeText": "Jalan pribadimu menuju produktivitas",
+    "title": "Kelola waktu",
+    "gradientTitle": "dengan fokus",
+    "subtitle": "Antarmuka intuitif bagi mereka yang menghargai setiap menit. Bangun ritme produktif dan raih pencapaian baru.",
+    "ctaTitle": "Mulai",
+    "ctaDesc": "Bergabunglah dengan 10.000+ pengguna",
+    "stats": {
+      "focus": "FOKUS",
+      "access": "AKSES",
+      "days": "HARI"
+    }
+  },
+  "homeVisual": {
+    "title": "Sesi Langsung",
+    "status": "Mode Fokus"
+  },
+  "timerControls": {
+    "start": "Mulai timer",
+    "stop": "Hentikan timer",
+    "descriptionPlaceholder": "Jelaskan aktivitas",
+    "descriptionAriaLabel": "Deskripsi aktivitas"
+  },
+  "timerEvents": {
+    "listTitle": "Riwayat aktivitas",
+    "emptyState": "Belum ada aktivitas. Mulai timer untuk memulai."
+  },
+  "timerEventCard": {
+    "edit": "Edit",
+    "editAria": "Edit event",
+    "delete": "Hapus",
+    "deleteAria": "Hapus event",
+    "save": "Simpan",
+    "saveAria": "Simpan perubahan event",
+    "cancel": "Batal",
+    "cancelAria": "Batalkan pengeditan event",
+    "descriptionPlaceholder": "Deskripsi event",
+    "descriptionAriaLabel": "Deskripsi event",
+    "startTimeAriaLabel": "Waktu mulai",
+    "endTimeAriaLabel": "Waktu selesai",
+    "invalidHint": "Waktu selesai harus setelah waktu mulai"
+  },
+  "timerDeleteDialog": {
+    "title": "Hapus event?",
+    "description": "Tindakan ini tidak dapat dibatalkan.",
+    "cancel": "Batal",
+    "confirm": "Hapus",
+    "detailsFallback": "Tanpa deskripsi"
+  },
+  "notFound": {
+    "title": "Ups...",
+    "desc": "Sepertinya halaman ini tidak ada",
+    "goToMain": "Kembali ke beranda"
+  },
+  "events": {
+    "label": {
+      "one": "event",
+      "other": "event"
+    }
+  }
+}

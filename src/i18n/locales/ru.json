@@ -5,8 +5,7 @@
     "noDescription": "Без описания",
     "clearInput": "Очистить поле ввода",
     "toggleOff": "Выкл",
-    "toggleOn": "Вкл",
-    "timeSeparator": "\u2014"
+    "toggleOn": "Вкл"
   },
   "nav": {
     "home": "Главная",

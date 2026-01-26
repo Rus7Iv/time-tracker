@@ -2,8 +2,20 @@ import type { Language, Messages } from './resources'
 import { resources } from './resources'
 
 const localeMap: Record<Language, string> = {
-  ru: 'ru-RU',
+  ar: 'ar',
+  de: 'de-DE',
   en: 'en-US',
+  es: 'es-ES',
+  fr: 'fr-FR',
+  hi: 'hi-IN',
+  id: 'id-ID',
+  it: 'it-IT',
+  ja: 'ja-JP',
+  ko: 'ko-KR',
+  'pt-BR': 'pt-BR',
+  ru: 'ru-RU',
+  tr: 'tr-TR',
+  'zh-CN': 'zh-CN',
 }
 
 const pluralKeys = new Set(['zero', 'one', 'two', 'few', 'many', 'other'])
@@ -18,6 +30,42 @@ const resolveLanguage = (value?: string | null): Language | null => {
   }
   if (normalized.startsWith('en')) {
     return 'en'
+  }
+  if (normalized.startsWith('es')) {
+    return 'es'
+  }
+  if (normalized.startsWith('pt')) {
+    return 'pt-BR'
+  }
+  if (normalized.startsWith('fr')) {
+    return 'fr'
+  }
+  if (normalized.startsWith('de')) {
+    return 'de'
+  }
+  if (normalized.startsWith('zh')) {
+    return 'zh-CN'
+  }
+  if (normalized.startsWith('ja')) {
+    return 'ja'
+  }
+  if (normalized.startsWith('ko')) {
+    return 'ko'
+  }
+  if (normalized.startsWith('ar')) {
+    return 'ar'
+  }
+  if (normalized.startsWith('hi')) {
+    return 'hi'
+  }
+  if (normalized.startsWith('id')) {
+    return 'id'
+  }
+  if (normalized.startsWith('tr')) {
+    return 'tr'
+  }
+  if (normalized.startsWith('it')) {
+    return 'it'
   }
   return null
 }

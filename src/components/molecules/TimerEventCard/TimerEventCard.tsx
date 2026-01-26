@@ -94,7 +94,7 @@ export const TimerEventCard = ({
               }
               aria-label={t.timerEventCard.startTimeAriaLabel}
             />
-            <TimeSeparator>{t.common.timeSeparator}</TimeSeparator>
+            <TimeSeparator>{'\u2014'}</TimeSeparator>
             <TimeInput
               type="time"
               step="1"

@@ -5,8 +5,7 @@
     "noDescription": "No description",
     "clearInput": "Clear input field",
     "toggleOff": "Off",
-    "toggleOn": "On",
-    "timeSeparator": "\u2014"
+    "toggleOn": "On"
   },
   "nav": {
     "home": "Home",

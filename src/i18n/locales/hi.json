@@ -1,0 +1,80 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "loading": "लोड हो रहा है...",
+    "noDescription": "कोई विवरण नहीं",
+    "clearInput": "इनपुट साफ़ करें",
+    "toggleOff": "बंद",
+    "toggleOn": "चालू"
+  },
+  "nav": {
+    "home": "होम",
+    "timer": "टाइमर",
+    "collapse": "छोटा करें",
+    "calculator": "कैलकुलेटर",
+    "payments": "भुगतान",
+    "settings": "सेटिंग्स"
+  },
+  "homeHero": {
+    "badgeText": "उत्पादकता का आपका व्यक्तिगत मार्ग",
+    "title": "समय प्रबंधित करें",
+    "gradientTitle": "फोकस के साथ",
+    "subtitle": "उन लोगों के लिए एक सहज इंटरफ़ेस जो हर मिनट की कद्र करते हैं। अपनी उत्पादकता की लय बनाएं और नई ऊंचाइयों तक पहुंचें।",
+    "ctaTitle": "शुरू करें",
+    "ctaDesc": "10,000+ उपयोगकर्ताओं से जुड़ें",
+    "stats": {
+      "focus": "फोकस",
+      "access": "पहुँच",
+      "days": "दिन"
+    }
+  },
+  "homeVisual": {
+    "title": "सक्रिय सत्र",
+    "status": "फोकस मोड"
+  },
+  "timerControls": {
+    "start": "टाइमर शुरू करें",
+    "stop": "टाइमर रोकें",
+    "descriptionPlaceholder": "गतिविधि का विवरण दें",
+    "descriptionAriaLabel": "गतिविधि का विवरण"
+  },
+  "timerEvents": {
+    "listTitle": "गतिविधि इतिहास",
+    "emptyState": "अभी तक कोई गतिविधि नहीं है। शुरू करने के लिए टाइमर चालू करें।"
+  },
+  "timerEventCard": {
+    "edit": "संपादन करें",
+    "editAria": "इवेंट संपादित करें",
+    "delete": "हटाएं",
+    "deleteAria": "इवेंट हटाएं",
+    "save": "सहेजें",
+    "saveAria": "इवेंट के बदलाव सहेजें",
+    "cancel": "रद्द करें",
+    "cancelAria": "संपादन रद्द करें",
+    "descriptionPlaceholder": "इवेंट का विवरण",
+    "descriptionAriaLabel": "इवेंट का विवरण",
+    "startTimeAriaLabel": "शुरू होने का समय",
+    "endTimeAriaLabel": "समाप्त होने का समय",
+    "invalidHint": "समाप्ति का समय शुरू होने के समय के बाद होना चाहिए"
+  },
+  "timerDeleteDialog": {
+    "title": "इवेंट हटाएं?",
+    "description": "यह क्रिया वापस नहीं ली जा सकती।",
+    "cancel": "रद्द करें",
+    "confirm": "हटाएं",
+    "detailsFallback": "कोई विवरण नहीं"
+  },
+  "notFound": {
+    "title": "ओह...",
+    "desc": "ऐसा लगता है कि यह पेज मौजूद नहीं है",
+    "goToMain": "मुख्य पेज पर वापस जाएं"
+  },
+  "events": {
+    "label": {
+      "one": "इवेंट",
+      "few": "इवेंट",
+      "many": "इवेंट",
+      "other": "इवेंट"
+    }
+  }
+}

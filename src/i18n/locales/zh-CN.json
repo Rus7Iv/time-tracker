@@ -1,0 +1,79 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "loading": "加载中...",
+    "noDescription": "无描述",
+    "clearInput": "清空输入框",
+    "toggleOff": "关",
+    "toggleOn": "开"
+  },
+  "nav": {
+    "home": "首页",
+    "timer": "计时器",
+    "collapse": "收起",
+    "calculator": "计算器",
+    "payments": "支付"
+  },
+  "homeHero": {
+    "badgeText": "你的个人高效之路",
+    "title": "管理时间",
+    "gradientTitle": "专注当下",
+    "subtitle": "为珍惜每一分钟的人设计的直观界面。打造你的高效节奏，攀登新高度。",
+    "ctaTitle": "开始使用",
+    "ctaDesc": "加入 10,000+ 位用户",
+    "stats": {
+      "focus": "专注",
+      "access": "访问",
+      "days": "天数"
+    }
+  },
+  "homeVisual": {
+    "title": "当前时段",
+    "status": "专注模式"
+  },
+  "timerControls": {
+    "start": "开始计时",
+    "stop": "停止计时",
+    "descriptionPlaceholder": "描述当前活动",
+    "descriptionAriaLabel": "活动描述"
+  },
+  "timerEvents": {
+    "listTitle": "活动历史",
+    "emptyState": "暂无活动。开启计时器来开始记录吧。"
+  },
+  "timerEventCard": {
+    "edit": "编辑",
+    "editAria": "编辑活动",
+    "delete": "删除",
+    "deleteAria": "删除活动",
+    "save": "保存",
+    "saveAria": "保存活动修改",
+    "cancel": "取消",
+    "cancelAria": "取消编辑活动",
+    "descriptionPlaceholder": "活动描述",
+    "descriptionAriaLabel": "活动描述",
+    "startTimeAriaLabel": "开始时间",
+    "endTimeAriaLabel": "结束时间",
+    "invalidHint": "结束时间必须晚于开始时间"
+  },
+  "timerDeleteDialog": {
+    "title": "确认删除活动？",
+    "description": "此操作无法撤销。",
+    "cancel": "取消",
+    "confirm": "删除",
+    "detailsFallback": "无描述"
+  },
+  "notFound": {
+    "title": "哎呀...",
+    "desc": "似乎页面不存在",
+    "goToMain": "返回首页"
+  },
+  "events": {
+    "label": {
+      "one": "个活动",
+      "few": "个活动",
+      "many": "个活动",
+      "other": "个活动"
+    }
+  }
+}

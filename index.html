@@ -10,21 +10,30 @@
         } catch (e) {
           stored = null
         }
-        var normalizedStored = stored ? stored.toLowerCase() : ''
-        var storedLang = normalizedStored.startsWith('ru')
-          ? 'ru'
-          : normalizedStored.startsWith('en')
-            ? 'en'
-            : null
-        var navLang = (navigator.language || navigator.userLanguage || 'en')
-          .toLowerCase()
-        var resolved = storedLang
-          ? storedLang
-          : navLang.startsWith('ru')
-            ? 'ru'
-            : navLang.startsWith('en')
-              ? 'en'
-              : 'en'
+        var resolveLang = function (value) {
+          if (!value) return null
+          var v = value.toLowerCase()
+          if (v.startsWith('ru')) return 'ru'
+          if (v.startsWith('en')) return 'en'
+          if (v.startsWith('es')) return 'es'
+          if (v.startsWith('pt')) return 'pt-BR'
+          if (v.startsWith('fr')) return 'fr'
+          if (v.startsWith('de')) return 'de'
+          if (v.startsWith('zh')) return 'zh-CN'
+          if (v.startsWith('ja')) return 'ja'
+          if (v.startsWith('ko')) return 'ko'
+          if (v.startsWith('ar')) return 'ar'
+          if (v.startsWith('hi')) return 'hi'
+          if (v.startsWith('id')) return 'id'
+          if (v.startsWith('tr')) return 'tr'
+          if (v.startsWith('it')) return 'it'
+          return null
+        }
+        var storedLang = resolveLang(stored)
+        var navLang = resolveLang(
+          navigator.language || navigator.userLanguage || 'en'
+        )
+        var resolved = storedLang || navLang || 'en'
         document.documentElement.lang = resolved
         document.documentElement.setAttribute('data-lang', resolved)
       })()

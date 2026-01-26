@@ -1,0 +1,79 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "loading": "جاري التحميل...",
+    "noDescription": "بدون وصف",
+    "clearInput": "مسح حقل الإدخال",
+    "toggleOff": "إيقاف",
+    "toggleOn": "تشغيل"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "timer": "المؤقت",
+    "collapse": "طوي",
+    "calculator": "الحاسبة",
+    "payments": "المدفوعات"
+  },
+  "homeHero": {
+    "badgeText": "طريقك الشخصي نحو الإنتاجية",
+    "title": "إدارة الوقت",
+    "gradientTitle": "بتركيز",
+    "subtitle": "واجهة سهلة لأولئك الذين يقدرون كل دقيقة. ابنِ إيقاع إنتاجيتك وحقق آفاقاً جديدة.",
+    "ctaTitle": "ابدأ الآن",
+    "ctaDesc": "انضم إلى أكثر من 10,000 مستخدم",
+    "stats": {
+      "focus": "تركيز",
+      "access": "وصول",
+      "days": "أيام"
+    }
+  },
+  "homeVisual": {
+    "title": "الجلسة النشطة",
+    "status": "وضع التركيز"
+  },
+  "timerControls": {
+    "start": "بدء المؤقت",
+    "stop": "إيقاف المؤقت",
+    "descriptionPlaceholder": "وصف النشاط",
+    "descriptionAriaLabel": "وصف النشاط"
+  },
+  "timerEvents": {
+    "listTitle": "سجل الأنشطة",
+    "emptyState": "لا توجد أنشطة بعد. ابدأ المؤقت للبدء."
+  },
+  "timerEventCard": {
+    "edit": "تعديل",
+    "editAria": "تعديل الحدث",
+    "delete": "حذف",
+    "deleteAria": "حذف الحدث",
+    "save": "حفظ",
+    "saveAria": "حفظ تغييرات الحدث",
+    "cancel": "إلغاء",
+    "cancelAria": "إلغاء تعديل الحدث",
+    "descriptionPlaceholder": "وصف الحدث",
+    "descriptionAriaLabel": "وصف الحدث",
+    "startTimeAriaLabel": "وقت البدء",
+    "endTimeAriaLabel": "وقت الانتهاء",
+    "invalidHint": "يجب أن يكون وقت الانتهاء بعد وقت البدء"
+  },
+  "timerDeleteDialog": {
+    "title": "حذف الحدث؟",
+    "description": "لا يمكن التراجع عن هذا الإجراء.",
+    "cancel": "إلغاء",
+    "confirm": "حذف",
+    "detailsFallback": "بدون وصف"
+  },
+  "notFound": {
+    "title": "عذراً...",
+    "desc": "يبدو أن هذه الصفحة غير موجودة",
+    "goToMain": "العودة إلى الرئيسية"
+  },
+  "events": {
+    "label": {
+      "one": "حدث",
+      "few": "أحداث",
+      "many": "حدثاً",
+      "other": "أحداث"
+    }
+  }
+}

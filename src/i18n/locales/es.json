@@ -1,0 +1,78 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "alphaTag": "alpha",
+    "loading": "Cargando...",
+    "noDescription": "Sin descripcion",
+    "clearInput": "Borrar campo de entrada",
+    "toggleOff": "Apagado",
+    "toggleOn": "Encendido"
+  },
+  "nav": {
+    "home": "Inicio",
+    "timer": "Temporizador",
+    "collapse": "Contraer",
+    "calculator": "Calculadora",
+    "payments": "Pagos"
+  },
+  "homeHero": {
+    "badgeText": "Tu camino personal hacia la productividad",
+    "title": "Gestiona el tiempo",
+    "gradientTitle": "con enfoque",
+    "subtitle": "Una interfaz intuitiva para quienes valoran cada minuto. Crea un ritmo productivo y alcanza nuevas metas.",
+    "ctaTitle": "Empezar",
+    "ctaDesc": "Unete a mas de 10.000 usuarios",
+    "stats": {
+      "focus": "ENFOQUE",
+      "access": "ACCESO",
+      "days": "DIAS"
+    }
+  },
+  "homeVisual": {
+    "title": "Sesion en vivo",
+    "status": "Modo enfoque"
+  },
+  "timerControls": {
+    "start": "Iniciar temporizador",
+    "stop": "Detener temporizador",
+    "descriptionPlaceholder": "Describe la actividad",
+    "descriptionAriaLabel": "Descripcion de la actividad"
+  },
+  "timerEvents": {
+    "listTitle": "Historial de actividades",
+    "emptyState": "Aun no hay actividades. Inicia el temporizador para comenzar."
+  },
+  "timerEventCard": {
+    "edit": "Editar",
+    "editAria": "Editar evento",
+    "delete": "Eliminar",
+    "deleteAria": "Eliminar evento",
+    "save": "Guardar",
+    "saveAria": "Guardar cambios del evento",
+    "cancel": "Cancelar",
+    "cancelAria": "Cancelar edicion del evento",
+    "descriptionPlaceholder": "Descripcion del evento",
+    "descriptionAriaLabel": "Descripcion del evento",
+    "startTimeAriaLabel": "Hora de inicio",
+    "endTimeAriaLabel": "Hora de finalizacion",
+    "invalidHint": "La hora de finalizacion debe ser posterior al inicio"
+  },
+  "timerDeleteDialog": {
+    "title": "Eliminar evento?",
+    "description": "Esta accion no se puede deshacer.",
+    "cancel": "Cancelar",
+    "confirm": "Eliminar",
+    "detailsFallback": "Sin descripcion"
+  },
+  "notFound": {
+    "title": "Ups...",
+    "desc": "Parece que esta pagina no existe",
+    "goToMain": "Volver al inicio"
+  },
+  "events": {
+    "label": {
+      "one": "evento",
+      "other": "eventos"
+    }
+  }
+}

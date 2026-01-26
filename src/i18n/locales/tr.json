@@ -1,0 +1,78 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "alphaTag": "alpha",
+    "loading": "Yukleniyor...",
+    "noDescription": "Aciklama yok",
+    "clearInput": "Giris alanini temizle",
+    "toggleOff": "Kapali",
+    "toggleOn": "Acik"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "timer": "Zamanlayici",
+    "collapse": "Daralt",
+    "calculator": "Hesap Makinesi",
+    "payments": "Odemeler"
+  },
+  "homeHero": {
+    "badgeText": "Verimlilige giden kisisel yolun",
+    "title": "Zamani yonet",
+    "gradientTitle": "odakla",
+    "subtitle": "Her dakikaya deger verenler icin sezgisel arayuz. Verimli bir ritim olustur ve yeni zirvelere ulas.",
+    "ctaTitle": "Basla",
+    "ctaDesc": "10.000+ kullaniciya katil",
+    "stats": {
+      "focus": "ODAK",
+      "access": "ERISIM",
+      "days": "GUN"
+    }
+  },
+  "homeVisual": {
+    "title": "Canli Oturum",
+    "status": "Odak Modu"
+  },
+  "timerControls": {
+    "start": "Zamanlayiciyi baslat",
+    "stop": "Zamanlayiciyi durdur",
+    "descriptionPlaceholder": "Etkinligi acikla",
+    "descriptionAriaLabel": "Etkinlik aciklamasi"
+  },
+  "timerEvents": {
+    "listTitle": "Etkinlik gecmisi",
+    "emptyState": "Henuz etkinlik yok. Baslamak icin zamanlayiciyi calistir."
+  },
+  "timerEventCard": {
+    "edit": "Duzenle",
+    "editAria": "Etkinligi duzenle",
+    "delete": "Sil",
+    "deleteAria": "Etkinligi sil",
+    "save": "Kaydet",
+    "saveAria": "Etkinlik degisikliklerini kaydet",
+    "cancel": "Iptal",
+    "cancelAria": "Etkinlik duzenlemesini iptal et",
+    "descriptionPlaceholder": "Etkinlik aciklamasi",
+    "descriptionAriaLabel": "Etkinlik aciklamasi",
+    "startTimeAriaLabel": "Baslangic zamani",
+    "endTimeAriaLabel": "Bitis zamani",
+    "invalidHint": "Bitis zamani baslangictan sonra olmali"
+  },
+  "timerDeleteDialog": {
+    "title": "Etkinlik silinsin mi?",
+    "description": "Bu islem geri alinamaz.",
+    "cancel": "Iptal",
+    "confirm": "Sil",
+    "detailsFallback": "Aciklama yok"
+  },
+  "notFound": {
+    "title": "Ups...",
+    "desc": "Bu sayfa mevcut degil",
+    "goToMain": "Ana sayfaya don"
+  },
+  "events": {
+    "label": {
+      "one": "etkinlik",
+      "other": "etkinlikler"
+    }
+  }
+}
