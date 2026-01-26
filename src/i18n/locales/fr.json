@@ -1,0 +1,78 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "alphaTag": "alpha",
+    "loading": "Chargement...",
+    "noDescription": "Sans description",
+    "clearInput": "Effacer le champ de saisie",
+    "toggleOff": "Desactive",
+    "toggleOn": "Active"
+  },
+  "nav": {
+    "home": "Accueil",
+    "timer": "Minuteur",
+    "collapse": "Replier",
+    "calculator": "Calculatrice",
+    "payments": "Paiements"
+  },
+  "homeHero": {
+    "badgeText": "Votre chemin personnel vers la productivite",
+    "title": "Gerez votre temps",
+    "gradientTitle": "avec focus",
+    "subtitle": "Une interface intuitive pour ceux qui valorisent chaque minute. Creez un rythme productif et atteignez de nouveaux sommets.",
+    "ctaTitle": "Commencer",
+    "ctaDesc": "Rejoignez plus de 10 000 utilisateurs",
+    "stats": {
+      "focus": "FOCUS",
+      "access": "ACCES",
+      "days": "JOURS"
+    }
+  },
+  "homeVisual": {
+    "title": "Session en direct",
+    "status": "Mode focus"
+  },
+  "timerControls": {
+    "start": "Demarrer le minuteur",
+    "stop": "Arreter le minuteur",
+    "descriptionPlaceholder": "Decrivez l'activite",
+    "descriptionAriaLabel": "Description de l'activite"
+  },
+  "timerEvents": {
+    "listTitle": "Historique des activites",
+    "emptyState": "Aucune activite pour le moment. Demarrez le minuteur pour commencer."
+  },
+  "timerEventCard": {
+    "edit": "Modifier",
+    "editAria": "Modifier l'evenement",
+    "delete": "Supprimer",
+    "deleteAria": "Supprimer l'evenement",
+    "save": "Enregistrer",
+    "saveAria": "Enregistrer les modifications de l'evenement",
+    "cancel": "Annuler",
+    "cancelAria": "Annuler la modification de l'evenement",
+    "descriptionPlaceholder": "Description de l'evenement",
+    "descriptionAriaLabel": "Description de l'evenement",
+    "startTimeAriaLabel": "Heure de debut",
+    "endTimeAriaLabel": "Heure de fin",
+    "invalidHint": "L'heure de fin doit etre apres le debut"
+  },
+  "timerDeleteDialog": {
+    "title": "Supprimer l'evenement ?",
+    "description": "Cette action est irreversible.",
+    "cancel": "Annuler",
+    "confirm": "Supprimer",
+    "detailsFallback": "Sans description"
+  },
+  "notFound": {
+    "title": "Oups...",
+    "desc": "Il semble que cette page n'existe pas",
+    "goToMain": "Retour a l'accueil"
+  },
+  "events": {
+    "label": {
+      "one": "evenement",
+      "other": "evenements"
+    }
+  }
+}

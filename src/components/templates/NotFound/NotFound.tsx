@@ -1,16 +1,14 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const NotFound = () => {
-  const title = 'Упс...'
-  const desc = 'Похоже, что такой страницы не существует'
-  const goToMain = 'Вернуться на главную'
+import t from '@/i18n/locals'
 
+export const NotFound = () => {
   return (
     <NotFoundWrapper>
-      <h1>{title}</h1>
-      <span>{desc}</span>
-      <GoToMainLink to={'/'}>{goToMain}</GoToMainLink>
+      <h1>{t.notFound.title}</h1>
+      <span>{t.notFound.desc}</span>
+      <GoToMainLink to={'/'}>{t.notFound.goToMain}</GoToMainLink>
     </NotFoundWrapper>
   )
 }

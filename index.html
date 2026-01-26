@@ -1,7 +1,43 @@
 ﻿<!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var stored = null
+        try {
+          stored = localStorage.getItem('app.lang')
+        } catch (e) {
+          stored = null
+        }
+        var resolveLang = function (value) {
+          if (!value) return null
+          var v = value.toLowerCase()
+          if (v.startsWith('ru')) return 'ru'
+          if (v.startsWith('en')) return 'en'
+          if (v.startsWith('es')) return 'es'
+          if (v.startsWith('pt')) return 'pt-BR'
+          if (v.startsWith('fr')) return 'fr'
+          if (v.startsWith('de')) return 'de'
+          if (v.startsWith('zh')) return 'zh-CN'
+          if (v.startsWith('ja')) return 'ja'
+          if (v.startsWith('ko')) return 'ko'
+          if (v.startsWith('ar')) return 'ar'
+          if (v.startsWith('hi')) return 'hi'
+          if (v.startsWith('id')) return 'id'
+          if (v.startsWith('tr')) return 'tr'
+          if (v.startsWith('it')) return 'it'
+          return null
+        }
+        var storedLang = resolveLang(stored)
+        var navLang = resolveLang(
+          navigator.language || navigator.userLanguage || 'en'
+        )
+        var resolved = storedLang || navLang || 'en'
+        document.documentElement.lang = resolved
+        document.documentElement.setAttribute('data-lang', resolved)
+      })()
+    </script>
     <link rel="icon" type="image/svg+xml" href="/timer_icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta

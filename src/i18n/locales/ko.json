@@ -1,0 +1,79 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "loading": "로딩 중...",
+    "noDescription": "설명 없음",
+    "clearInput": "입력 내용 지우기",
+    "toggleOff": "꺼짐",
+    "toggleOn": "켜짐"
+  },
+  "nav": {
+    "home": "홈",
+    "timer": "타이머",
+    "collapse": "접기",
+    "calculator": "계산기",
+    "payments": "결제"
+  },
+  "homeHero": {
+    "badgeText": "생산성을 향상시키는 나만의 길",
+    "title": "집중력 있게",
+    "gradientTitle": "시간을 관리하세요",
+    "subtitle": "매 순간의 가치를 아는 분들을 위한 직관적인 인터페이스. 생산성의 리듬을 만들고 새로운 목표를 달성하세요.",
+    "ctaTitle": "시작하기",
+    "ctaDesc": "10,000명 이상의 사용자와 함께하세요",
+    "stats": {
+      "focus": "집중",
+      "access": "접근",
+      "days": "일수"
+    }
+  },
+  "homeVisual": {
+    "title": "활성 세션",
+    "status": "집중 모드"
+  },
+  "timerControls": {
+    "start": "타이머 시작",
+    "stop": "타이머 정지",
+    "descriptionPlaceholder": "활동 내용 입력",
+    "descriptionAriaLabel": "활동 설명"
+  },
+  "timerEvents": {
+    "listTitle": "활동 기록",
+    "emptyState": "기록된 활동이 없습니다. 타이머를 시작해 보세요."
+  },
+  "timerEventCard": {
+    "edit": "편집",
+    "editAria": "이벤트 편집",
+    "delete": "삭제",
+    "deleteAria": "이벤트 삭제",
+    "save": "저장",
+    "saveAria": "이벤트 변경사항 저장",
+    "cancel": "취소",
+    "cancelAria": "이벤트 편집 취소",
+    "descriptionPlaceholder": "이벤트 설명",
+    "descriptionAriaLabel": "이벤트 설명",
+    "startTimeAriaLabel": "시작 시간",
+    "endTimeAriaLabel": "종료 시간",
+    "invalidHint": "종료 시간은 시작 시간보다 나중이어야 합니다"
+  },
+  "timerDeleteDialog": {
+    "title": "이벤트를 삭제하시겠습니까?",
+    "description": "이 작업은 취소할 수 없습니다.",
+    "cancel": "취소",
+    "confirm": "삭제",
+    "detailsFallback": "설명 없음"
+  },
+  "notFound": {
+    "title": "어라...",
+    "desc": "찾으시는 페이지가 존재하지 않는 것 같습니다",
+    "goToMain": "홈으로 돌아가기"
+  },
+  "events": {
+    "label": {
+      "one": "개의 이벤트",
+      "few": "개의 이벤트",
+      "many": "개의 이벤트",
+      "other": "개의 이벤트"
+    }
+  }
+}

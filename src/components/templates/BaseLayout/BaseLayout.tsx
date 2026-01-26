@@ -8,6 +8,8 @@ import useSidebarStore from '../../../store/sidebarStore'
 import { Header } from '../../organisms/Header/Header'
 import Sidebar from '../../organisms/Sidebar/Sidebar'
 
+import t from '@/i18n/locals'
+
 interface IBaseLayoutProps {
   children: React.ReactNode
 }
@@ -25,7 +27,9 @@ export const BaseLayout = ({ children }: IBaseLayoutProps) => {
           <Sidebar $isExpanded={isSidebarExpanded} onAction={toggleSidebar} />
         )}
         <Content $isHeaderExpanded={isHeaderExpanded}>
-          <Suspense fallback={<SuspenseFallback>Загрузка...</SuspenseFallback>}>
+          <Suspense
+            fallback={<SuspenseFallback>{t.common.loading}</SuspenseFallback>}
+          >
             {children}
           </Suspense>
         </Content>

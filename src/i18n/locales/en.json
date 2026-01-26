@@ -1,0 +1,77 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "loading": "Loading...",
+    "noDescription": "No description",
+    "clearInput": "Clear input field",
+    "toggleOff": "Off",
+    "toggleOn": "On"
+  },
+  "nav": {
+    "home": "Home",
+    "timer": "Timer",
+    "collapse": "Collapse",
+    "calculator": "Calculator",
+    "payments": "Payments"
+  },
+  "homeHero": {
+    "badgeText": "Your personal path to productivity",
+    "title": "Manage time",
+    "gradientTitle": "with focus",
+    "subtitle": "An intuitive interface for those who value every minute. Build a productive rhythm and reach new heights.",
+    "ctaTitle": "Get started",
+    "ctaDesc": "Join 10,000+ users",
+    "stats": {
+      "focus": "FOCUS",
+      "access": "ACCESS",
+      "days": "DAYS"
+    }
+  },
+  "homeVisual": {
+    "title": "Live Session",
+    "status": "Focus Mode"
+  },
+  "timerControls": {
+    "start": "Start timer",
+    "stop": "Stop timer",
+    "descriptionPlaceholder": "Describe the activity",
+    "descriptionAriaLabel": "Activity description"
+  },
+  "timerEvents": {
+    "listTitle": "Activity history",
+    "emptyState": "No activities yet. Start the timer to begin."
+  },
+  "timerEventCard": {
+    "edit": "Edit",
+    "editAria": "Edit event",
+    "delete": "Delete",
+    "deleteAria": "Delete event",
+    "save": "Save",
+    "saveAria": "Save event changes",
+    "cancel": "Cancel",
+    "cancelAria": "Cancel event editing",
+    "descriptionPlaceholder": "Event description",
+    "descriptionAriaLabel": "Event description",
+    "startTimeAriaLabel": "Start time",
+    "endTimeAriaLabel": "End time",
+    "invalidHint": "End time must be later than start time"
+  },
+  "timerDeleteDialog": {
+    "title": "Delete event?",
+    "description": "This action cannot be undone.",
+    "cancel": "Cancel",
+    "confirm": "Delete",
+    "detailsFallback": "No description"
+  },
+  "notFound": {
+    "title": "Oops...",
+    "desc": "Looks like this page does not exist",
+    "goToMain": "Back to home"
+  },
+  "events": {
+    "label": {
+      "one": "event",
+      "other": "events"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "alphaTag": "alpha",
+    "loading": "Carregando...",
+    "noDescription": "Sem descricao",
+    "clearInput": "Limpar campo de entrada",
+    "toggleOff": "Desligado",
+    "toggleOn": "Ligado"
+  },
+  "nav": {
+    "home": "Inicio",
+    "timer": "Temporizador",
+    "collapse": "Recolher",
+    "calculator": "Calculadora",
+    "payments": "Pagamentos"
+  },
+  "homeHero": {
+    "badgeText": "Seu caminho pessoal para a produtividade",
+    "title": "Gerencie o tempo",
+    "gradientTitle": "com foco",
+    "subtitle": "Uma interface intuitiva para quem valoriza cada minuto. Crie um ritmo produtivo e alcance novos patamares.",
+    "ctaTitle": "Comecar",
+    "ctaDesc": "Junte-se a mais de 10.000 usuarios",
+    "stats": {
+      "focus": "FOCO",
+      "access": "ACESSO",
+      "days": "DIAS"
+    }
+  },
+  "homeVisual": {
+    "title": "Sessao ao vivo",
+    "status": "Modo foco"
+  },
+  "timerControls": {
+    "start": "Iniciar temporizador",
+    "stop": "Parar temporizador",
+    "descriptionPlaceholder": "Descreva a atividade",
+    "descriptionAriaLabel": "Descricao da atividade"
+  },
+  "timerEvents": {
+    "listTitle": "Historico de atividades",
+    "emptyState": "Ainda nao ha atividades. Inicie o temporizador para comecar."
+  },
+  "timerEventCard": {
+    "edit": "Editar",
+    "editAria": "Editar evento",
+    "delete": "Excluir",
+    "deleteAria": "Excluir evento",
+    "save": "Salvar",
+    "saveAria": "Salvar alteracoes do evento",
+    "cancel": "Cancelar",
+    "cancelAria": "Cancelar edicao do evento",
+    "descriptionPlaceholder": "Descricao do evento",
+    "descriptionAriaLabel": "Descricao do evento",
+    "startTimeAriaLabel": "Hora de inicio",
+    "endTimeAriaLabel": "Hora de termino",
+    "invalidHint": "A hora de termino deve ser posterior ao inicio"
+  },
+  "timerDeleteDialog": {
+    "title": "Excluir evento?",
+    "description": "Esta acao nao pode ser desfeita.",
+    "cancel": "Cancelar",
+    "confirm": "Excluir",
+    "detailsFallback": "Sem descricao"
+  },
+  "notFound": {
+    "title": "Ops...",
+    "desc": "Parece que esta pagina nao existe",
+    "goToMain": "Voltar para a pagina inicial"
+  },
+  "events": {
+    "label": {
+      "one": "evento",
+      "other": "eventos"
+    }
+  }
+}

@@ -5,6 +5,8 @@ import {
   formatTimeRange,
   type TimerEventData,
 } from '@/components/templates/Timer/Timer.utils'
+import t from '@/i18n/locals'
+import { useLocale } from '@/i18n/useI18n'
 
 type TimerDeleteDialogProps = {
   event: TimerEventData | null
@@ -12,19 +14,12 @@ type TimerDeleteDialogProps = {
   onConfirm: () => void
 }
 
-const labels = {
-  title: 'Удалить событие?',
-  description: 'Это действие нельзя отменить.',
-  cancel: 'Отмена',
-  confirm: 'Удалить',
-  detailsFallback: 'Без описания',
-}
-
 export const TimerDeleteDialog = ({
   event,
   onCancel,
   onConfirm,
 }: TimerDeleteDialogProps) => {
+  const locale = useLocale()
   useEffect(() => {
     if (!event) {
       return
@@ -52,22 +47,24 @@ export const TimerDeleteDialog = ({
         aria-describedby="confirm-delete-description"
         onClick={(clickEvent) => clickEvent.stopPropagation()}
       >
-        <Title id="confirm-delete-title">{labels.title}</Title>
+        <Title id="confirm-delete-title">{t.timerDeleteDialog.title}</Title>
         <Description id="confirm-delete-description">
-          {labels.description}
+          {t.timerDeleteDialog.description}
         </Description>
         <Meta>
-          <MetaLabel>{event.description || labels.detailsFallback}</MetaLabel>
+          <MetaLabel>
+            {event.description || t.timerDeleteDialog.detailsFallback}
+          </MetaLabel>
           <MetaValue>
-            {formatTimeRange(event.startTime, event.endTime)}
+            {formatTimeRange(event.startTime, event.endTime, locale)}
           </MetaValue>
         </Meta>
         <Actions>
           <ActionButton type="button" onClick={onCancel}>
-            {labels.cancel}
+            {t.timerDeleteDialog.cancel}
           </ActionButton>
           <ActionButton type="button" $variant="danger" onClick={onConfirm}>
-            {labels.confirm}
+            {t.timerDeleteDialog.confirm}
           </ActionButton>
         </Actions>
       </Dialog>

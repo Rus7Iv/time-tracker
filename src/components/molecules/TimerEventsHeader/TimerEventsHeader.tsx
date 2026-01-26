@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { getEventsLabel } from '@/components/templates/Timer/Timer.utils'
+import t from '@/i18n/locals'
 
 type TimerEventsHeaderProps = {
   title: string
@@ -12,7 +12,7 @@ export const TimerEventsHeader = ({ title, count }: TimerEventsHeaderProps) => {
     <Header>
       <Title>{title}</Title>
       <Meta>
-        {count} {getEventsLabel(count)}
+        {count} {t.events.label(count)}
       </Meta>
     </Header>
   )

@@ -4,12 +4,13 @@ import { TimerControls } from '@/components/organisms/TimerControls/TimerControl
 import { TimerEvents } from '@/components/organisms/TimerEvents/TimerEvents'
 import { createEventId } from '@/components/templates/Timer/Timer.utils'
 import useDocumentTitle from '@/hooks/useDocumentTitle'
+import t from '@/i18n/locals'
 import { media } from '@/media/media'
 import { useElapsedTime } from '@/store/useElapsedTime'
 import { useTimerStore } from '@/store/useTimerStore'
 
 export const Timer = () => {
-  useDocumentTitle('TimeTracker')
+  useDocumentTitle(t.common.appName)
   const startTime = useTimerStore((state) => state.startTime)
   const setStartTime = useTimerStore((state) => state.setStartTime)
   const description = useTimerStore((state) => state.description)
@@ -32,7 +33,7 @@ export const Timer = () => {
       id: createEventId(startTime, endTime),
       startTime,
       endTime,
-      description: description.trim() || 'No description',
+      description: description.trim() || t.common.noDescription,
     })
     setDescription('')
     setStartTime(null)
@@ -40,7 +41,7 @@ export const Timer = () => {
 
   return (
     <TimerLayout>
-      <PageTitle>Таймер</PageTitle>
+      <PageTitle>{t.nav.timer}</PageTitle>
       <TimerControls
         isRunning={isRunning}
         timeCounter={timeCounter}

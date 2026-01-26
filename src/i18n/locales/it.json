@@ -1,0 +1,78 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "alphaTag": "alpha",
+    "loading": "Caricamento...",
+    "noDescription": "Senza descrizione",
+    "clearInput": "Cancella campo di input",
+    "toggleOff": "Spento",
+    "toggleOn": "Acceso"
+  },
+  "nav": {
+    "home": "Home",
+    "timer": "Timer",
+    "collapse": "Riduci",
+    "calculator": "Calcolatrice",
+    "payments": "Pagamenti"
+  },
+  "homeHero": {
+    "badgeText": "Il tuo percorso personale verso la produttivita",
+    "title": "Gestisci il tempo",
+    "gradientTitle": "con focus",
+    "subtitle": "Un'interfaccia intuitiva per chi valorizza ogni minuto. Crea un ritmo produttivo e raggiungi nuovi traguardi.",
+    "ctaTitle": "Inizia",
+    "ctaDesc": "Unisciti a oltre 10.000 utenti",
+    "stats": {
+      "focus": "FOCUS",
+      "access": "ACCESSO",
+      "days": "GIORNI"
+    }
+  },
+  "homeVisual": {
+    "title": "Sessione dal vivo",
+    "status": "Modalita Focus"
+  },
+  "timerControls": {
+    "start": "Avvia timer",
+    "stop": "Ferma timer",
+    "descriptionPlaceholder": "Descrivi l'attivita",
+    "descriptionAriaLabel": "Descrizione dell'attivita"
+  },
+  "timerEvents": {
+    "listTitle": "Cronologia attivita",
+    "emptyState": "Nessuna attivita ancora. Avvia il timer per iniziare."
+  },
+  "timerEventCard": {
+    "edit": "Modifica",
+    "editAria": "Modifica evento",
+    "delete": "Elimina",
+    "deleteAria": "Elimina evento",
+    "save": "Salva",
+    "saveAria": "Salva le modifiche dell'evento",
+    "cancel": "Annulla",
+    "cancelAria": "Annulla la modifica dell'evento",
+    "descriptionPlaceholder": "Descrizione dell'evento",
+    "descriptionAriaLabel": "Descrizione dell'evento",
+    "startTimeAriaLabel": "Ora di inizio",
+    "endTimeAriaLabel": "Ora di fine",
+    "invalidHint": "L'orario di fine deve essere successivo all'inizio"
+  },
+  "timerDeleteDialog": {
+    "title": "Eliminare evento?",
+    "description": "Questa azione non puo essere annullata.",
+    "cancel": "Annulla",
+    "confirm": "Elimina",
+    "detailsFallback": "Senza descrizione"
+  },
+  "notFound": {
+    "title": "Ops...",
+    "desc": "Sembra che questa pagina non esista",
+    "goToMain": "Torna alla home"
+  },
+  "events": {
+    "label": {
+      "one": "evento",
+      "other": "eventi"
+    }
+  }
+}

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import { StartButton } from '@/components/atoms/Buttons'
 import { Input } from '@/components/atoms/Input/Input'
+import t from '@/i18n/locals'
 import { media } from '@/media/media'
 
 type TimerControlsProps = {
@@ -10,13 +11,6 @@ type TimerControlsProps = {
   description: string
   onToggle: () => void
   onDescriptionChange: (value: string) => void
-}
-
-const labels = {
-  start: 'Запустить таймер',
-  stop: 'Остановить таймер',
-  descriptionPlaceholder: 'Опишите активность',
-  descriptionAriaLabel: 'Описание активности',
 }
 
 export const TimerControls = ({
@@ -34,13 +28,13 @@ export const TimerControls = ({
           variant={isRunning ? 'end' : 'start'}
           type="button"
           aria-pressed={isRunning}
-          aria-label={isRunning ? labels.stop : labels.start}
+          aria-label={isRunning ? t.timerControls.stop : t.timerControls.start}
         />
         <Counter>{timeCounter}</Counter>
       </ControlsRow>
       <TimerInput
-        placeholder={labels.descriptionPlaceholder}
-        aria-label={labels.descriptionAriaLabel}
+        placeholder={t.timerControls.descriptionPlaceholder}
+        aria-label={t.timerControls.descriptionAriaLabel}
         value={description}
         onChange={(event) => onDescriptionChange(event.target.value)}
       />
