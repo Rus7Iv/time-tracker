@@ -92,6 +92,8 @@ const TimerStartButton = styled(StartButton)`
 const Counter = styled.div`
   font-size: 30px;
   min-width: 124px;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
 
   ${media.isMobile} {
     font-size: 26px;
