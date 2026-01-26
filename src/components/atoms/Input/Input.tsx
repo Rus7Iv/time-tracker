@@ -1,6 +1,7 @@
 import { styled } from 'styled-components'
 
 import { ReactComponent as CrossIcon } from '@/assets/icons/cross.svg'
+import t from '@/i18n/locals'
 
 export const Input = ({
   onChange,
@@ -24,7 +25,7 @@ export const Input = ({
       {props.value && (
         <ClearButton
           type="button"
-          aria-label="Очистить поле ввода"
+          aria-label={t.common.clearInput}
           onClick={handleClear}
         >
           <CrossIcon />

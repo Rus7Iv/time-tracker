@@ -2,24 +2,9 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { StartButton } from '@/components/atoms/Buttons'
+import t from '@/i18n/locals'
 import { media } from '@/media/media'
 import { fadeIn, pulse } from '@/styles/animations'
-
-const heroContent = {
-  badgeIcon: '✨',
-  badgeText: 'Твой личный путь к продуктивности',
-  title: 'Управляй временем',
-  gradientTitle: 'с фокусом',
-  subtitle:
-    'Интуитивный интерфейс для тех, кто ценит каждую минуту. Создавай ритм продуктивности и достигай новых высот.',
-  ctaTitle: 'Начать работу',
-  ctaDesc: 'Присоединяйся к 10 000+ пользователей',
-  stats: [
-    { value: '100%', label: 'ФОКУС' },
-    { value: '24/7', label: 'ДОСТУП' },
-    { value: '365', label: 'ДНЕЙ' },
-  ],
-}
 
 export const HomeHero = () => {
   const navigate = useNavigate()
@@ -28,29 +13,35 @@ export const HomeHero = () => {
   return (
     <HeroSection>
       <Badge>
-        <SparkleIcon>{heroContent.badgeIcon}</SparkleIcon>
-        {heroContent.badgeText}
+        <SparkleIcon>{'\u2728'}</SparkleIcon>
+        {t.homeHero.badgeText}
       </Badge>
       <Title>
-        {heroContent.title} <br />
-        <GradientText>{heroContent.gradientTitle}</GradientText>
+        {t.homeHero.title} <br />
+        <GradientText>{t.homeHero.gradientTitle}</GradientText>
       </Title>
-      <Subtitle>{heroContent.subtitle}</Subtitle>
+      <Subtitle>{t.homeHero.subtitle}</Subtitle>
       <CTAContainer>
         <StartButton onClick={handleStart} />
         <CTAContent>
-          <CTATitle>{heroContent.ctaTitle}</CTATitle>
-          <CTADesc>{heroContent.ctaDesc}</CTADesc>
+          <CTATitle>{t.homeHero.ctaTitle}</CTATitle>
+          <CTADesc>{t.homeHero.ctaDesc}</CTADesc>
         </CTAContent>
       </CTAContainer>
 
       <StatsGrid>
-        {heroContent.stats.map((stat) => (
-          <StatItem key={`${stat.value}-${stat.label}`}>
-            <StatValue>{stat.value}</StatValue>
-            <StatLabel>{stat.label}</StatLabel>
-          </StatItem>
-        ))}
+        <StatItem>
+          <StatValue>100%</StatValue>
+          <StatLabel>{t.homeHero.stats.focus}</StatLabel>
+        </StatItem>
+        <StatItem>
+          <StatValue>24/7</StatValue>
+          <StatLabel>{t.homeHero.stats.access}</StatLabel>
+        </StatItem>
+        <StatItem>
+          <StatValue>365</StatValue>
+          <StatLabel>{t.homeHero.stats.days}</StatLabel>
+        </StatItem>
       </StatsGrid>
     </HeroSection>
   )

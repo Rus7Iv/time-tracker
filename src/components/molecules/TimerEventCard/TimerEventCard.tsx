@@ -7,6 +7,8 @@ import {
   formatTimeRange,
   type TimerEventData,
 } from '@/components/templates/Timer/Timer.utils'
+import t from '@/i18n/locals'
+import { useLocale } from '@/i18n/useI18n'
 import { media } from '@/media/media'
 
 export type EditDraft = {
@@ -33,22 +35,6 @@ type TimerEventCardProps = {
   onEditDraftChange: (updates: Partial<EditDraft>) => void
 }
 
-const labels = {
-  edit: 'Редактировать',
-  editAria: 'Редактировать событие',
-  delete: 'Удалить',
-  deleteAria: 'Удалить событие',
-  save: 'Сохранить',
-  saveAria: 'Сохранить изменения события',
-  cancel: 'Отмена',
-  cancelAria: 'Отменить редактирование события',
-  descriptionPlaceholder: 'Описание события',
-  descriptionAriaLabel: 'Описание события',
-  startTimeAriaLabel: 'Время начала',
-  endTimeAriaLabel: 'Время окончания',
-  invalidHint: 'Время окончания должно быть позже начала',
-}
-
 export const TimerEventCard = ({
   event,
   isEditing,
@@ -61,10 +47,11 @@ export const TimerEventCard = ({
   onDelete,
   onEditDraftChange,
 }: TimerEventCardProps) => {
+  const locale = useLocale()
   const timeRangeLabel =
     isEditing && draftTimes
-      ? formatTimeRange(draftTimes.start, draftTimes.end)
-      : formatTimeRange(event.startTime, event.endTime)
+      ? formatTimeRange(draftTimes.start, draftTimes.end, locale)
+      : formatTimeRange(event.startTime, event.endTime, locale)
 
   const durationLabel =
     isEditing && draftTimes && hasValidDraft
@@ -80,17 +67,17 @@ export const TimerEventCard = ({
             <EventActionButton
               type="button"
               onClick={onEditStart}
-              aria-label={labels.editAria}
+              aria-label={t.timerEventCard.editAria}
             >
-              {labels.edit}
+              {t.timerEventCard.edit}
             </EventActionButton>
             <EventActionButton
               type="button"
               $variant="danger"
               onClick={onDelete}
-              aria-label={labels.deleteAria}
+              aria-label={t.timerEventCard.deleteAria}
             >
-              {labels.delete}
+              {t.timerEventCard.delete}
             </EventActionButton>
           </EventActions>
         )}
@@ -105,9 +92,9 @@ export const TimerEventCard = ({
               onChange={(event) =>
                 onEditDraftChange({ startTime: event.target.value })
               }
-              aria-label={labels.startTimeAriaLabel}
+              aria-label={t.timerEventCard.startTimeAriaLabel}
             />
-            <TimeSeparator>–</TimeSeparator>
+            <TimeSeparator>{t.common.timeSeparator}</TimeSeparator>
             <TimeInput
               type="time"
               step="1"
@@ -115,12 +102,12 @@ export const TimerEventCard = ({
               onChange={(event) =>
                 onEditDraftChange({ endTime: event.target.value })
               }
-              aria-label={labels.endTimeAriaLabel}
+              aria-label={t.timerEventCard.endTimeAriaLabel}
             />
           </EditTimeRow>
           <EventDescriptionInput
-            placeholder={labels.descriptionPlaceholder}
-            aria-label={labels.descriptionAriaLabel}
+            placeholder={t.timerEventCard.descriptionPlaceholder}
+            aria-label={t.timerEventCard.descriptionAriaLabel}
             value={editDraft?.description ?? ''}
             onChange={(event) =>
               onEditDraftChange({ description: event.target.value })
@@ -131,19 +118,21 @@ export const TimerEventCard = ({
               type="submit"
               $variant="primary"
               disabled={!hasValidDraft}
-              aria-label={labels.saveAria}
+              aria-label={t.timerEventCard.saveAria}
             >
-              {labels.save}
+              {t.timerEventCard.save}
             </EventActionButton>
             <EventActionButton
               type="button"
               onClick={onEditCancel}
-              aria-label={labels.cancelAria}
+              aria-label={t.timerEventCard.cancelAria}
             >
-              {labels.cancel}
+              {t.timerEventCard.cancel}
             </EventActionButton>
           </EventActions>
-          {!hasValidDraft && <EditHint>{labels.invalidHint}</EditHint>}
+          {!hasValidDraft && (
+            <EditHint>{t.timerEventCard.invalidHint}</EditHint>
+          )}
         </EditForm>
       ) : (
         <EventDescription>{event.description}</EventDescription>

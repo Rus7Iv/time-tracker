@@ -1,18 +1,18 @@
 import styled, { keyframes, useTheme } from 'styled-components'
 
 import { TimerWidget } from '@/components/molecules/TimerWidget/TimerWidget'
+import t from '@/i18n/locals'
 import { media } from '@/media/media'
 import { fadeIn } from '@/styles/animations'
 import { adjustBrightness, withAlpha } from '@/styles/colorUtils'
 
-const visualContent = {
-  title: 'Live Session',
-  time: '24:00',
-  status: 'Focus Mode',
-}
-
 export const HomeVisual = () => {
   const theme = useTheme()
+  const visualContent = {
+    title: t.homeVisual.title,
+    time: '24:00',
+    status: t.homeVisual.status,
+  }
   const dotColors = [
     theme.colors.red,
     theme.colors.raspberry,

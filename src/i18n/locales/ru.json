@@ -1,0 +1,80 @@
+{
+  "common": {
+    "appName": "TimeTracker",
+    "loading": "Загрузка...",
+    "noDescription": "Без описания",
+    "clearInput": "Очистить поле ввода",
+    "toggleOff": "Выкл",
+    "toggleOn": "Вкл",
+    "timeSeparator": "\u2014"
+  },
+  "nav": {
+    "home": "Главная",
+    "timer": "Таймер",
+    "collapse": "Свернуть",
+    "calculator": "Калькулятор",
+    "payments": "Платежи"
+  },
+  "homeHero": {
+    "badgeText": "Твой личный путь к продуктивности",
+    "title": "Управляй временем",
+    "gradientTitle": "с фокусом",
+    "subtitle": "Интуитивный интерфейс для тех, кто ценит каждую минуту. Создавай ритм продуктивности и достигай новых высот.",
+    "ctaTitle": "Начать работу",
+    "ctaDesc": "Присоединяйся к 10 000+ пользователей",
+    "stats": {
+      "focus": "ФОКУС",
+      "access": "ДОСТУП",
+      "days": "ДНЕЙ"
+    }
+  },
+  "homeVisual": {
+    "title": "Активная сессия",
+    "status": "Режим фокуса"
+  },
+  "timerControls": {
+    "start": "Запустить таймер",
+    "stop": "Остановить таймер",
+    "descriptionPlaceholder": "Опишите активность",
+    "descriptionAriaLabel": "Описание активности"
+  },
+  "timerEvents": {
+    "listTitle": "История активностей",
+    "emptyState": "Пока нет активностей. Запустите таймер, чтобы начать."
+  },
+  "timerEventCard": {
+    "edit": "Редактировать",
+    "editAria": "Редактировать событие",
+    "delete": "Удалить",
+    "deleteAria": "Удалить событие",
+    "save": "Сохранить",
+    "saveAria": "Сохранить изменения события",
+    "cancel": "Отмена",
+    "cancelAria": "Отменить редактирование события",
+    "descriptionPlaceholder": "Описание события",
+    "descriptionAriaLabel": "Описание события",
+    "startTimeAriaLabel": "Время начала",
+    "endTimeAriaLabel": "Время окончания",
+    "invalidHint": "Время окончания должно быть позже начала"
+  },
+  "timerDeleteDialog": {
+    "title": "Удалить событие?",
+    "description": "Это действие нельзя отменить.",
+    "cancel": "Отмена",
+    "confirm": "Удалить",
+    "detailsFallback": "Без описания"
+  },
+  "notFound": {
+    "title": "Упс...",
+    "desc": "Похоже, что такой страницы не существует",
+    "goToMain": "Вернуться на главную"
+  },
+  "events": {
+    "label": {
+      "one": "событие",
+      "few": "события",
+      "many": "событий",
+      "other": "события"
+    }
+  }
+}

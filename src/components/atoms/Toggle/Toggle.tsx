@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import styled, { css } from 'styled-components'
 
+import t from '@/i18n/locals'
+
 type ToggleVariant = 'default' | 'borderless'
 
 export interface IToggleProps {
@@ -18,11 +20,13 @@ export const Toggle = ({
   checked = false,
   onChange,
   disabled = false,
-  leftLabel = 'Off',
-  rightLabel = 'On',
+  leftLabel,
+  rightLabel,
   className,
 }: IToggleProps) => {
   const [isChecked, setIsChecked] = useState(checked)
+  const resolvedLeftLabel = leftLabel ?? t.common.toggleOff
+  const resolvedRightLabel = rightLabel ?? t.common.toggleOn
 
   const handleToggle = () => {
     if (!disabled) {
@@ -35,8 +39,8 @@ export const Toggle = ({
   return (
     <Wrapper className={className}>
       <TextContainer onClick={handleToggle} $disabled={disabled}>
-        <Text $position="left">{leftLabel}</Text>
-        <Text $position="right">{rightLabel}</Text>
+        <Text $position="left">{resolvedLeftLabel}</Text>
+        <Text $position="right">{resolvedRightLabel}</Text>
       </TextContainer>
       <ToggleContainer>
         <ToggleSwitch

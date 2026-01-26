@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from 'styled-components'
 
 import App from '@/App'
+import { I18nProvider } from '@/i18n/I18nProvider'
 import { useThemeStore } from '@/store/useThemeStore'
 import GlobalStyles from '@/styles/GlobalStyles'
 import { darkTheme, lightTheme } from '@/styles/themes'
@@ -30,8 +31,10 @@ const ThemedApp: React.FC = () => {
   return (
     <ThemeProvider theme={currentTheme}>
       <GlobalStyles />
-      <App />
-      <Analytics />
+      <I18nProvider>
+        <App />
+        <Analytics />
+      </I18nProvider>
     </ThemeProvider>
   )
 }

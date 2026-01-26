@@ -15,16 +15,13 @@ import {
   groupEventsByDay,
   type TimerEventData,
 } from '@/components/templates/Timer/Timer.utils'
+import t from '@/i18n/locals'
+import { useLocale } from '@/i18n/useI18n'
 
 type TimerEventsProps = {
   events: TimerEventData[]
   onUpdateEvent: (id: string, updates: Partial<TimerEventData>) => void
   onDeleteEvent: (id: string) => void
-}
-
-const labels = {
-  listTitle: 'История активностей',
-  emptyState: 'Пока нет активностей. Запустите таймер, чтобы начать.',
 }
 
 const getDraftTimes = (
@@ -47,6 +44,7 @@ export const TimerEvents = ({
   onUpdateEvent,
   onDeleteEvent,
 }: TimerEventsProps) => {
+  const locale = useLocale()
   const [editingEventId, setEditingEventId] = useState<string | null>(null)
   const [editDraft, setEditDraft] = useState<EditDraft | null>(null)
   const [pendingDeleteId, setPendingDeleteId] = useState<string | null>(null)
@@ -82,7 +80,7 @@ export const TimerEvents = ({
       return
     }
     onUpdateEvent(event.id, {
-      description: editDraft.description.trim() || 'No description',
+      description: editDraft.description.trim() || t.common.noDescription,
       startTime: times.start,
       endTime: times.end,
     })
@@ -120,16 +118,19 @@ export const TimerEvents = ({
 
   return (
     <EventsListSection>
-      <TimerEventsHeader title={labels.listTitle} count={events.length} />
+      <TimerEventsHeader
+        title={t.timerEvents.listTitle}
+        count={events.length}
+      />
       <EventsListScroller>
         {events.length === 0 ? (
-          <EmptyState>{labels.emptyState}</EmptyState>
+          <EmptyState>{t.timerEvents.emptyState}</EmptyState>
         ) : (
           <DayList>
             {groupedEvents.map((group) => (
               <DaySection key={group.date.toISOString()}>
                 <DayHeader>
-                  <DayTitle>{formatDayLabel(group.date)}</DayTitle>
+                  <DayTitle>{formatDayLabel(group.date, locale)}</DayTitle>
                 </DayHeader>
                 <DayEvents>
                   {group.items.map((event) => {

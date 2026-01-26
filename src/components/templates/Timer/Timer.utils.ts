@@ -128,25 +128,6 @@ export const formatTimeRange = (start: Date, end: Date, locale?: string) =>
 export const formatDuration = (start: Date, end: Date) =>
   formatTime(end.getTime() - start.getTime())
 
-// TODO: исправить в задаче с переводами
-/**
- * Get the localized label for the events count in Russian.
- * @param count - Number of events.
- * @returns Correct pluralized label.
- */
-export const getEventsLabel = (count: number) => {
-  const mod10 = count % 10
-  const mod100 = count % 100
-
-  if (mod10 === 1 && mod100 !== 11) {
-    return 'событие'
-  }
-  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) {
-    return 'события'
-  }
-  return 'событий'
-}
-
 /**
  * Create a unique ID for an event.
  * @param start - Event start time.

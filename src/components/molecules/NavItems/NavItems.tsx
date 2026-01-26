@@ -8,6 +8,7 @@ import { ReactComponent as RollUp } from '@/assets/icons/rollup.svg'
 // import { ReactComponent as Calculator } from '@/assets/icons/calculator.svg'
 // import { ReactComponent as Cardholder } from '@/assets/icons/cardholder.svg'
 import { ReactComponent as Timer } from '@/assets/icons/timer.svg'
+import t from '@/i18n/locals'
 
 interface NavItemsProps {
   $isExpanded: boolean
@@ -24,25 +25,25 @@ export const NavItems = ({ $isExpanded }: NavItemsProps) => {
       <NavItem to={'/'}>
         <HomeIcon />
         <TextWrapper $isExpanded={$isExpanded}>
-          <Text>Главная</Text>
+          <Text>{t.nav.home}</Text>
         </TextWrapper>
       </NavItem>
       <NavItem to={'/timer'}>
         <Timer />
         <TextWrapper $isExpanded={$isExpanded}>
-          <Text>Таймер</Text>
+          <Text>{t.nav.timer}</Text>
         </TextWrapper>
       </NavItem>
       {/* <NavItem to={'/calculator'}>
         <Calculator />
         <TextWrapper $isExpanded={$isExpanded}>
-          <Text>Калькулятор</Text>
+          <Text>{t.nav.calculator}</Text>
         </TextWrapper>
       </NavItem>
       <NavItem to={'/payments'}>
         <Cardholder />
         <TextWrapper $isExpanded={$isExpanded}>
-          <Text>Платежи</Text>
+          <Text>{t.nav.payments}</Text>
         </TextWrapper>
       </NavItem> */}
     </StyledNavItems>
@@ -55,13 +56,13 @@ export const HeaderNavItems = () => {
       <NavItem to={'/'}>
         <HomeIcon />
         <TextWrapper $isExpanded>
-          <Text>Главная</Text>
+          <Text>{t.nav.home}</Text>
         </TextWrapper>
       </NavItem>
       <NavItem to={'/timer'}>
         <Timer />
         <TextWrapper $isExpanded>
-          <Text>Таймер</Text>
+          <Text>{t.nav.timer}</Text>
         </TextWrapper>
       </NavItem>
     </HeaderNavItemsWrapper>
@@ -74,7 +75,7 @@ export const FooterNavItems = ({ $isExpanded, onAction }: NavItemsProps) => {
       <FooterNavItem onClick={onAction}>
         <RollUp />
         <TextWrapper $isExpanded={$isExpanded}>
-          <Text>Свернуть</Text>
+          <Text>{t.nav.collapse}</Text>
         </TextWrapper>
       </FooterNavItem>
     </StyledFooterNavItems>

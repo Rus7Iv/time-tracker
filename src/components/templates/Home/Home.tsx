@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import { HomeHero } from '@/components/organisms/HomeHero/HomeHero'
 import { HomeVisual } from '@/components/organisms/HomeVisual/HomeVisual'
 import useDocumentTitle from '@/hooks/useDocumentTitle'
+import t from '@/i18n/locals'
 import { media } from '@/media/media'
 
 export const Home = () => {
-  useDocumentTitle('TimeTracker')
+  useDocumentTitle(t.common.appName)
 
   return (
     <MainLayout>
